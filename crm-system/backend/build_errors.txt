@@ -1,0 +1,100 @@
+
+> backend@0.0.1 build
+> nest build
+
+[96mseed.ts[0m:[93m13[0m:[93m7[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'name' does not exist in type '(Without<UserCreateInput, UserUncheckedCreateInput> & UserUncheckedCreateInput) | (Without<...> & UserCreateInput)'.
+
+[7m13[0m       name: 'Admin',
+[7m  [0m [91m      ~~~~[0m
+
+  [96mnode_modules/.prisma/client/index.d.ts[0m:[93m3335[0m:[93m5[0m
+    [7m3335[0m     create: XOR<UserCreateInput, UserUncheckedCreateInput>
+    [7m    [0m [96m    ~~~~~~[0m
+    The expected type comes from property 'create' which is declared here on type '{ select?: UserSelect<DefaultArgs> | null | undefined; omit?: UserOmit<DefaultArgs> | null | undefined; include?: UserInclude<DefaultArgs> | null | undefined; where: UserWhereUniqueInput; create: (Without<...> & UserUncheckedCreateInput) | (Without<...> & UserCreateInput); update: (Without<...> & UserUncheckedUpdate...'
+[96msrc/auth/auth.service.ts[0m:[93m14[0m:[93m42[0m - [91merror[0m[90m TS2339: [0mProperty 'findOneByEmail' does not exist on type 'UsersService'.
+
+[7m14[0m     const user = await this.usersService.findOneByEmail(loginDto.email);
+[7m  [0m [91m                                         ~~~~~~~~~~~~~~[0m
+[96msrc/customers/customers.service.ts[0m:[93m32[0m:[93m11[0m - [91merror[0m[90m TS2322: [0mType '{ type: string; value: string; is_primary: boolean; }[]' is not assignable to type '(Without<CustomerContactCreateWithoutCustomerInput, CustomerContactUncheckedCreateWithoutCustomerInput> & CustomerContactUncheckedCreateWithoutCustomerInput) | (Without<...> & CustomerContactCreateWithoutCustomerInput) | CustomerContactCreateWithoutCustomerInput[] | CustomerContactUncheckedCreateWithoutCustomerInput...'.
+  Type '{ type: string; value: string; is_primary: boolean; }[]' is not assignable to type 'CustomerContactCreateWithoutCustomerInput[]'.
+    Type '{ type: string; value: string; is_primary: boolean; }' is not assignable to type 'CustomerContactCreateWithoutCustomerInput'.
+      Types of property 'type' are incompatible.
+        Type 'string' is not assignable to type 'ContactType'.
+
+[7m32[0m           create: [
+[7m  [0m [91m          ~~~~~~[0m
+[96msrc/customers/customers.service.ts[0m:[93m61[0m:[93m19[0m - [91merror[0m[90m TS18048: [0m'pagination.page' is possibly 'undefined'.
+
+[7m61[0m     const skip = (pagination.page - 1) * pagination.limit;
+[7m  [0m [91m                  ~~~~~~~~~~~~~~~[0m
+[96msrc/customers/customers.service.ts[0m:[93m61[0m:[93m42[0m - [91merror[0m[90m TS18048: [0m'pagination.limit' is possibly 'undefined'.
+
+[7m61[0m     const skip = (pagination.page - 1) * pagination.limit;
+[7m  [0m [91m                                         ~~~~~~~~~~~~~~~~[0m
+[96msrc/customers/customers.service.ts[0m:[93m90[0m:[93m20[0m - [91merror[0m[90m TS2464: [0mA computed property name must be of type 'string', 'number', 'symbol', or 'any'.
+
+[7m90[0m         orderBy: { [pagination.sortBy]: pagination.sortOrder },
+[7m  [0m [91m                   ~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/customers/customers.service.ts[0m:[93m100[0m:[93m37[0m - [91merror[0m[90m TS18048: [0m'pagination.limit' is possibly 'undefined'.
+
+[7m100[0m       totalPages: Math.ceil(total / pagination.limit),
+[7m   [0m [91m                                    ~~~~~~~~~~~~~~~~[0m
+[96msrc/products/products.controller.ts[0m:[93m12[0m:[93m33[0m - [91merror[0m[90m TS2339: [0mProperty 'create' does not exist on type 'ProductsService'.
+
+[7m12[0m     return this.productsService.create(createDto);
+[7m  [0m [91m                                ~~~~~~[0m
+[96msrc/products/products.controller.ts[0m:[93m17[0m:[93m33[0m - [91merror[0m[90m TS2339: [0mProperty 'findAll' does not exist on type 'ProductsService'.
+
+[7m17[0m     return this.productsService.findAll();
+[7m  [0m [91m                                ~~~~~~~[0m
+[96msrc/products/products.controller.ts[0m:[93m22[0m:[93m33[0m - [91merror[0m[90m TS2339: [0mProperty 'findOne' does not exist on type 'ProductsService'.
+
+[7m22[0m     return this.productsService.findOne(id);
+[7m  [0m [91m                                ~~~~~~~[0m
+[96msrc/products/products.controller.ts[0m:[93m27[0m:[93m33[0m - [91merror[0m[90m TS2339: [0mProperty 'update' does not exist on type 'ProductsService'.
+
+[7m27[0m     return this.productsService.update(id, updateDto);
+[7m  [0m [91m                                ~~~~~~[0m
+[96msrc/purchases/purchases.service.ts[0m:[93m42[0m:[93m7[0m - [91merror[0m[90m TS2322: [0mType '{ customer_id: string; purchase_id: string | undefined; product_model: string; product_serial: string | undefined; purchase_date: Date; warranty_months: number; warranty_end_at: Date; }' is not assignable to type '(Without<CustomerProductCreateInput, CustomerProductUncheckedCreateInput> & CustomerProductUncheckedCreateInput) | (Without<...> & CustomerProductCreateInput)'.
+  Types of property 'purchase_id' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+
+[7m42[0m       data: {
+[7m  [0m [91m      ~~~~[0m
+
+  [96mnode_modules/.prisma/client/index.d.ts[0m:[93m7882[0m:[93m5[0m
+    [7m7882[0m     data: XOR<CustomerProductCreateInput, CustomerProductUncheckedCreateInput>
+    [7m    [0m [96m    ~~~~[0m
+    The expected type comes from property 'data' which is declared here on type '{ select?: CustomerProductSelect<DefaultArgs> | null | undefined; omit?: CustomerProductOmit<DefaultArgs> | null | undefined; include?: CustomerProductInclude<...> | ... 1 more ... | undefined; data: (Without<...> & CustomerProductUncheckedCreateInput) | (Without<...> & CustomerProductCreateInput); }'
+[96msrc/zns/controllers/zalo-webhook.controller.ts[0m:[93m16[0m:[93m7[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[7m16[0m       process.env.ZALO_APP_ID,
+[7m  [0m [91m      ~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/zns/services/zalo.service.ts[0m:[93m19[0m:[93m38[0m - [91merror[0m[90m TS2345: [0mArgument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+
+[7m19[0m     this.zaloClient = new ZaloClient(appId, appSecret, oaId);
+[7m  [0m [91m                                     ~~~~~[0m
+[96msrc/zns/zns.controller.ts[0m:[93m32[0m:[93m28[0m - [91merror[0m[90m TS2551: [0mProperty 'sendMessage' does not exist on type 'ZnsService'. Did you mean 'sendZnsMessage'?
+
+[7m32[0m     return this.znsService.sendMessage(dto);
+[7m  [0m [91m                           ~~~~~~~~~~~[0m
+
+  [96msrc/zns/zns.service.ts[0m:[93m36[0m:[93m9[0m
+    [7m36[0m   async sendZnsMessage(dto: SendZnsMessageDto) {
+    [7m  [0m [96m        ~~~~~~~~~~~~~~[0m
+    'sendZnsMessage' is declared here.
+[96msrc/zns/zns.service.ts[0m:[93m60[0m:[93m9[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'sent_by' does not exist in type 'Without<ZnsMessageLogCreateInput, ZnsMessageLogUncheckedCreateInput> & ZnsMessageLogUncheckedCreateInput'.
+
+[7m60[0m         sent_by: dto.sent_by,
+[7m  [0m [91m        ~~~~~~~[0m
+
+  [96mnode_modules/.prisma/client/index.d.ts[0m:[93m13541[0m:[93m5[0m
+    [7m13541[0m     data: XOR<ZnsMessageLogCreateInput, ZnsMessageLogUncheckedCreateInput>
+    [7m     [0m [96m    ~~~~[0m
+    The expected type comes from property 'data' which is declared here on type '{ select?: ZnsMessageLogSelect<DefaultArgs> | null | undefined; omit?: ZnsMessageLogOmit<DefaultArgs> | null | undefined; include?: ZnsMessageLogInclude<...> | ... 1 more ... | undefined; data: (Without<...> & ZnsMessageLogUncheckedCreateInput) | (Without<...> & ZnsMessageLogCreateInput); }'
+
+Found 16 error(s).
+

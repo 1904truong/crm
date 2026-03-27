@@ -1,0 +1,304 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String        @id @default(cuid())
+  email         String        @unique
+  password_hash String
+  full_name     String
+  role          UserRole      @default(CSKH)
+  is_active     Boolean       @default(true)
+  created_at    DateTime      @default(now())
+  updated_at    DateTime      @updatedAt
+  created_by_id String?
+  interactions  Interaction[]
+  customers     Customer[]
+
+  @@map("users")
+}
+
+model Customer {
+  id            String            @id @default(cuid())
+  code          String            @unique
+  full_name     String
+  phone_primary String?
+  email_primary String?
+  customer_type CustomerType      @default(PERSONAL)
+  segment       Segment           @default(NORMAL)
+  source        String?
+  notes         String?
+  dob           DateTime?
+  is_active     Boolean           @default(true)
+  created_at    DateTime          @default(now())
+  updated_at    DateTime          @updatedAt
+  owner_id      String?
+  owner         User?             @relation(fields: [owner_id], references: [id])
+  contacts      CustomerContact[]
+  products      CustomerProduct[]
+  interactions  Interaction[]
+  purchases     Purchase[]
+  reminders     Reminder[]
+  zns_messages  ZnsMessageLog[]
+
+  @@index([phone_primary])
+  @@index([email_primary])
+  @@index([segment])
+  @@map("customers")
+}
+
+model CustomerContact {
+  id          String      @id @default(cuid())
+  customer_id String
+  type        ContactType
+  value       String
+  is_primary  Boolean     @default(false)
+  created_at  DateTime    @default(now())
+  customer    Customer    @relation(fields: [customer_id], references: [id], onDelete: Cascade)
+
+  @@unique([customer_id, type, value])
+  @@index([customer_id])
+  @@map("customer_contacts")
+}
+
+model Purchase {
+  id            String            @id @default(cuid())
+  customer_id   String
+  purchase_date DateTime
+  source        String?
+  notes         String?
+  created_at    DateTime          @default(now())
+  products      CustomerProduct[]
+  customer      Customer          @relation(fields: [customer_id], references: [id], onDelete: Cascade)
+
+  @@index([customer_id])
+  @@index([purchase_date])
+  @@map("purchases")
+}
+
+model CustomerProduct {
+  id              String         @id @default(cuid())
+  customer_id     String
+  purchase_id     String
+  product_model   String
+  product_serial  String?
+  purchase_date   DateTime
+  warranty_months Int            @default(24)
+  warranty_end_at DateTime
+  created_at      DateTime       @default(now())
+  updated_at      DateTime       @updatedAt
+  customer        Customer       @relation(fields: [customer_id], references: [id], onDelete: Cascade)
+  purchase        Purchase       @relation(fields: [purchase_id], references: [id], onDelete: Cascade)
+  warranty_cases  WarrantyCase[]
+
+  @@index([customer_id])
+  @@index([warranty_end_at])
+  @@map("customer_products")
+}
+
+model WarrantyCase {
+  id                  String          @id @default(cuid())
+  customer_product_id String
+  status              WarrantyStatus  @default(OPEN)
+  issue_description   String
+  resolution          String?
+  opened_at           DateTime        @default(now())
+  closed_at           DateTime?
+  created_at          DateTime        @default(now())
+  updated_at          DateTime        @updatedAt
+  customer_product    CustomerProduct @relation(fields: [customer_product_id], references: [id], onDelete: Cascade)
+
+  @@index([customer_product_id])
+  @@index([status])
+  @@map("warranty_cases")
+}
+
+model Interaction {
+  id          String          @id @default(cuid())
+  customer_id String
+  type        InteractionType
+  content     String
+  owner_id    String
+  created_at  DateTime        @default(now())
+  updated_at  DateTime        @updatedAt
+  customer    Customer        @relation(fields: [customer_id], references: [id], onDelete: Cascade)
+  owner       User            @relation(fields: [owner_id], references: [id])
+  reminders   Reminder[]
+
+  @@index([customer_id])
+  @@index([owner_id])
+  @@map("interactions")
+}
+
+model Reminder {
+  id             String         @id @default(cuid())
+  customer_id    String
+  interaction_id String?
+  title          String
+  description    String?
+  follow_up_at   DateTime
+  status         ReminderStatus @default(PENDING)
+  owner_id       String?
+  created_at     DateTime       @default(now())
+  updated_at     DateTime       @updatedAt
+  customer       Customer       @relation(fields: [customer_id], references: [id], onDelete: Cascade)
+  interaction    Interaction?   @relation(fields: [interaction_id], references: [id])
+
+  @@index([customer_id])
+  @@index([follow_up_at])
+  @@index([status])
+  @@map("reminders")
+}
+
+model ZnsTemplate {
+  id               String            @id @default(cuid())
+  name             String
+  zalo_template_id String            @unique
+  content          String
+  variables        String
+  status           ZnsTemplateStatus @default(ACTIVE)
+  created_at       DateTime          @default(now())
+  updated_at       DateTime          @updatedAt
+  messages         ZnsMessageLog[]
+
+  @@map("zns_templates")
+}
+
+model ZnsMessageLog {
+  id           String      @id @default(cuid())
+  customer_id  String
+  template_id  String
+  phone_number String
+  payload      String
+  status       ZnsStatus   @default(QUEUED)
+  zalo_msg_id  String?
+  error_code   String?
+  sent_at      DateTime?
+  delivered_at DateTime?
+  created_at   DateTime    @default(now())
+  customer     Customer    @relation(fields: [customer_id], references: [id], onDelete: Cascade)
+  template     ZnsTemplate @relation(fields: [template_id], references: [id])
+
+  @@index([customer_id])
+  @@index([status])
+  @@map("zns_message_logs")
+}
+
+model AutomationRule {
+  id             String             @id @default(cuid())
+  name           String
+  description    String?
+  trigger_type   TriggerType
+  trigger_config String
+  action_type    ActionType
+  action_config  String
+  is_active      Boolean            @default(true)
+  created_at     DateTime           @default(now())
+  updated_at     DateTime           @updatedAt
+  runs           AutomationJobRun[]
+
+  @@map("automation_rules")
+}
+
+model AutomationJobRun {
+  id            String         @id @default(cuid())
+  rule_id       String
+  status        JobStatus      @default(PENDING)
+  error_message String?
+  executed_at   DateTime?
+  created_at    DateTime       @default(now())
+  rule          AutomationRule @relation(fields: [rule_id], references: [id], onDelete: Cascade)
+
+  @@index([rule_id])
+  @@index([status])
+  @@map("automation_job_runs")
+}
+
+enum UserRole {
+  ADMIN
+  CSKH
+  TECH
+  MANAGER
+}
+
+enum CustomerType {
+  PERSONAL
+  BUSINESS
+  ENTERPRISE
+}
+
+enum Segment {
+  VIP
+  NORMAL
+  POTENTIAL
+}
+
+enum ContactType {
+  PHONE
+  EMAIL
+  ZALO
+  FACEBOOK
+}
+
+enum WarrantyStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
+
+enum InteractionType {
+  CALL
+  SMS
+  ZALO
+  EMAIL
+  MEETING
+  OTHER
+}
+
+enum ReminderStatus {
+  PENDING
+  COMPLETED
+  CANCELLED
+}
+
+enum ZnsTemplateStatus {
+  ACTIVE
+  INACTIVE
+  PENDING_APPROVAL
+  REJECTED
+}
+
+enum ZnsStatus {
+  QUEUED
+  SENT
+  DELIVERED
+  FAILED
+  CANCELLED
+}
+
+enum TriggerType {
+  CRON
+  WARRANTY_ENDING
+  CUSTOMER_CREATED
+  PURCHASE_MADE
+}
+
+enum ActionType {
+  SEND_ZNS
+  CREATE_REMINDER
+  SEND_EMAIL
+  WEBHOOK
+}
+
+enum JobStatus {
+  PENDING
+  RUNNING
+  SUCCESS
+  FAILED
+}

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bảo hành — Tạo/Cập nhật case</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container": "#edeef0",
+                        "on-secondary-container": "#394c84",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "surface": "#f8f9fb",
+                        "on-tertiary-container": "#ffede6",
+                        "inverse-surface": "#2e3132",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e7e8ea",
+                        "on-primary-container": "#eeefff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-background": "#191c1e",
+                        "background": "#f8f9fb",
+                        "tertiary-container": "#bc4800",
+                        "secondary-container": "#acbfff",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-primary-fixed": "#00174b",
+                        "tertiary": "#943700",
+                        "outline": "#737686",
+                        "surface-tint": "#0053db",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "inverse-primary": "#b4c5ff",
+                        "secondary": "#495c95",
+                        "primary": "#004ac6",
+                        "on-tertiary-fixed": "#360f00",
+                        "surface-bright": "#f8f9fb",
+                        "outline-variant": "#c3c6d7",
+                        "on-secondary-fixed-variant": "#31447b",
+                        "inverse-on-surface": "#f0f1f3",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "secondary-fixed": "#dbe1ff",
+                        "on-surface-variant": "#434655",
+                        "on-surface": "#191c1e",
+                        "surface-variant": "#e1e2e4",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d9dadc",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "primary-container": "#2563eb",
+                        "on-secondary-fixed": "#00174b",
+                        "tertiary-fixed": "#ffdbcd"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- SideNavBar (Shared Component) -->
+<aside class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-slate-50 dark:bg-slate-900 flex flex-col py-6 z-50">
+<div class="px-6 mb-8">
+<h1 class="text-xl font-bold text-blue-700 dark:text-blue-500">CRM Admin</h1>
+<p class="text-xs text-slate-500">The Precision Architect</p>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</div>
+<div class="px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-sm font-medium">Khách hàng</span>
+</div>
+<div class="px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="event_repeat">event_repeat</span>
+<span class="text-sm font-medium">Tương tác &amp; Nhắc việc</span>
+</div>
+<div class="px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-sm font-medium">Mua hàng</span>
+</div>
+<div class="px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-sm font-medium">Sản phẩm đã mua</span>
+</div>
+<!-- Active Tab: Bảo hành -->
+<div class="px-4 py-2 text-blue-700 dark:text-blue-400 border-l-4 border-blue-600 bg-white dark:bg-slate-800 font-semibold flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="text-sm">Bảo hành</span>
+</div>
+<div class="px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="text-sm font-medium">Zalo ZNS</span>
+</div>
+<div class="px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="text-sm font-medium">Automation</span>
+</div>
+<div class="px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm font-medium">Quản trị hệ thống</span>
+</div>
+</nav>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="ml-64 min-h-screen relative flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-white/85 dark:bg-slate-950/85 backdrop-blur-xl flex items-center justify-between px-8 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-slate-400 transition-all" placeholder="Tìm kiếm bảo hành..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="text-slate-500 hover:text-primary transition-opacity duration-150">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-slate-500 hover:text-primary transition-opacity duration-150">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-3 group cursor-pointer">
+<div class="text-right">
+<p class="text-xs font-bold text-on-background">Nguyễn Văn A</p>
+<p class="text-[10px] text-slate-500">Quản trị viên</p>
+</div>
+<img alt="Admin Profile" class="w-8 h-8 rounded-full ring-2 ring-primary/10" data-alt="Portrait of an admin professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiKJIRSvhcVrzSiq5EdsCVnyntn55g-GQHjrk-RLxQ5A4Z6UJePkmdtQWx1dGSf0vWETAselsurbUYs--IL_o4bOTBqB7q0oRfUQaK2xAxu1Tkgqrho2p7RJOFA76rM1DgKaytsyrdaT5Q8MC5_hh-dpNeqAwljHuMemC8Oe8r9a-xMQQH6234SKExB2_Hl__TebJzCC55bpmiUnByOGiCTjJ8zcKUBzX5PppuMZYsP-ldG6ZvPXg7zKObn70PxPKP-t4it0dBP03x"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="mt-16 p-8 flex-1 bg-surface">
+<!-- Page Header -->
+<div class="mb-8 flex justify-between items-end">
+<div>
+<nav class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+<span>Bảo hành</span>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-primary font-medium">Tạo Case mới</span>
+</nav>
+<h2 class="text-3xl font-extrabold tracking-tight text-on-surface">Chi tiết Case Bảo hành</h2>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 text-sm font-medium text-slate-600 bg-surface-container-low hover:bg-surface-container-high rounded-xl transition-all">Sao chép Case</button>
+<button class="px-4 py-2 text-sm font-medium text-white bg-primary-container shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-100 rounded-xl transition-all">Xuất biên bản</button>
+</div>
+</div>
+<!-- Banner Cảnh báo (Conditional: Hết bảo hành) -->
+<div class="mb-8 p-4 bg-error-container/50 border-l-4 border-error rounded-xl flex items-center gap-4">
+<span class="material-symbols-outlined text-error" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-error-container">CẢNH BÁO: SẢN PHẨM HẾT HẠN BẢO HÀNH</p>
+<p class="text-xs text-on-error-container/80">Sản phẩm này đã vượt quá thời hạn bảo hành tiêu chuẩn (hết hạn ngày 15/10/2023). Vui lòng kiểm tra chính sách gia hạn.</p>
+</div>
+<button class="text-xs font-bold text-error underline decoration-2 underline-offset-4">Xem chính sách</button>
+</div>
+<!-- Main Form Bento Grid -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Form Left Column -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<!-- General Info Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<h3 class="text-sm font-bold text-slate-800 mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">info</span>
+                            Thông tin sự vụ
+                        </h3>
+<div class="space-y-6">
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Sản phẩm khách hàng <span class="text-error">*</span></label>
+<div class="relative">
+<select class="w-full bg-surface-container-low border-none rounded-xl py-3 px-4 text-sm focus:ring-2 focus:ring-primary/20 appearance-none">
+<option>iPhone 15 Pro Max - Titanium (SN: 8829102-X)</option>
+<option>MacBook Pro M3 - 14 inch</option>
+<option>AirPods Pro Gen 2</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">expand_more</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Ngày nhận máy <span class="text-error">*</span></label>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-3 px-4 text-sm focus:ring-2 focus:ring-primary/20" type="date" value="2024-05-20"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Mô tả nội dung lỗi <span class="text-error">*</span></label>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl py-3 px-4 text-sm focus:ring-2 focus:ring-primary/20 resize-none" placeholder="Mô tả chi tiết tình trạng lỗi của khách hàng khi nhận máy..." rows="4">Màn hình xuất hiện sọc xanh dọc sau khi cập nhật iOS mới nhất. Cảm ứng vẫn hoạt động bình thường nhưng hiển thị bị nhiễu màu ở góc dưới bên phải.</textarea>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Kết quả xử lý</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl py-3 px-4 text-sm focus:ring-2 focus:ring-primary/20 resize-none" placeholder="Ghi chú kết quả sau khi kiểm tra kỹ thuật..." rows="3">Đã kiểm tra phần cứng, lỗi thuộc về tấm nền display. Đề xuất thay cụm màn hình mới chính hãng.</textarea>
+</div>
+</div>
+</div>
+<!-- Attachment Section -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<h3 class="text-sm font-bold text-slate-800 mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">photo_library</span>
+                            Hình ảnh / Tài liệu đính kèm
+                        </h3>
+<div class="grid grid-cols-4 gap-4">
+<div class="aspect-square bg-surface-container-low rounded-xl flex items-center justify-center border-2 border-dashed border-outline-variant hover:border-primary transition-colors cursor-pointer group">
+<div class="text-center">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors">add_a_photo</span>
+<p class="text-[10px] mt-1 text-slate-500">Thêm ảnh</p>
+</div>
+</div>
+<div class="relative aspect-square group overflow-hidden rounded-xl bg-slate-200">
+<img alt="Repair screen" class="w-full h-full object-cover" data-alt="Close up image of a cracked phone screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSoZJ4fFg5YojmDcoBepdni6xSGt4sSLcblX5CACNG7GHQp8fbCvNLKAn-zejvqBGzA9BNSu6JWnQBXZwFcFNv5Xt55aW11qRm0EZ9yvKLFMu7jeFS5BlzuSvdP9wjTe-kMepzFGfNEYUG2zcSrmP_c1oJsywaC3VDnELSDpEpqfTgD-MSGEZntT_Sowg7eE1ctJpv_5lJgzFADV3ybyF86WfD6QVBfMxdwdPlbelNlRv3GsDCu4Rb39-nvzhf8lI5fHfqjbEcD-_B"/>
+<button class="absolute top-1 right-1 bg-white/50 backdrop-blur-md p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[16px] text-error">close</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Form Right Column -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Status & Assignment Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<h3 class="text-sm font-bold text-slate-800 mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">assignment_turned_in</span>
+                            Phân loại &amp; Trạng thái
+                        </h3>
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Trạng thái xử lý</label>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-yellow-100 text-yellow-700 text-xs font-bold rounded-full border border-yellow-200 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-yellow-600 animate-pulse"></span>
+                                        Đang xử lý
+                                    </span>
+<span class="px-3 py-1 bg-slate-100 text-slate-500 text-xs font-bold rounded-full border border-slate-200">Mới</span>
+<span class="px-3 py-1 bg-slate-100 text-slate-500 text-xs font-bold rounded-full border border-slate-200">Hoàn thành</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Người chịu trách nhiệm</label>
+<div class="flex items-center gap-3 bg-surface-container-low p-3 rounded-xl">
+<img alt="Staff" class="w-8 h-8 rounded-full" data-alt="Technical support staff member avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfcx_qbPu-8b1sfrmqaFPJHR5H2TTFnMnVD2loX0b1iXYHYwbNBYpee3YG7W-WVgxGjsxDbVLCMBPnhQxXyBvn3rjUgihvenASlNLZg-aqm8FNIFyt6X2JlrDTnPy9LGeUjvSjbxFg8nqY7EXhclWPuBMYGdBcTAyWm54ufL6ZxiWPum8pv8Q-e7zKEM5B4UvAOgY9B_t4V8pie3ND5JkhOqdHHDeGY095fcnzxBN4NPEh9dNc3ml0JAQs1MhwKgPMnPIEl5wAKqPk"/>
+<div class="flex-1">
+<p class="text-xs font-bold">Trần Kỹ Thuật</p>
+<p class="text-[10px] text-slate-500">Phòng Bảo Hành Miền Nam</p>
+</div>
+<button class="text-primary material-symbols-outlined text-lg">swap_horiz</button>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Ngày đóng Case</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-3 px-4 text-sm focus:ring-2 focus:ring-primary/20" type="date"/>
+<p class="text-[10px] text-slate-400 italic mt-1">* Để trống nếu chưa hoàn tất</p>
+</div>
+</div>
+</div>
+<!-- Customer Quick Info -->
+<div class="bg-primary/5 rounded-xl p-6 border border-primary/10">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 bg-primary-container rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-primary">Lê Thu Hằng</h4>
+<p class="text-xs text-primary/70">Khách hàng Platinum</p>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-xs">
+<span class="text-slate-500">Số điện thoại:</span>
+<span class="font-medium">090 123 4XXX</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-slate-500">Lần bảo hành thứ:</span>
+<span class="font-medium text-error">02 (Cảnh báo)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Transactional States (Mockups for prompt requirements) -->
+<div class="mt-12 space-y-4">
+<h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Xem trước các trạng thái khác</h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Loading State -->
+<div class="bg-surface-container-lowest p-6 rounded-xl flex items-center justify-center gap-3 opacity-60">
+<div class="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+<span class="text-sm font-medium">Đang tải dữ liệu...</span>
+</div>
+<!-- Empty State -->
+<div class="bg-surface-container-lowest p-6 rounded-xl flex flex-col items-center justify-center text-center opacity-60">
+<span class="material-symbols-outlined text-slate-300 text-3xl mb-2">folder_off</span>
+<span class="text-sm font-medium text-slate-400">Không có lịch sử sửa chữa</span>
+</div>
+<!-- Error State -->
+<div class="bg-error-container/20 p-6 rounded-xl flex items-center gap-3 border border-error/10">
+<span class="material-symbols-outlined text-error">error</span>
+<span class="text-sm font-medium text-error">Lỗi kết nối máy chủ</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions (Sticky) -->
+<footer class="sticky bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md px-8 py-4 flex justify-between items-center z-40 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-[10px] text-slate-500 font-medium">Auto-save: Vừa xong</span>
+</div>
+<div class="flex gap-4">
+<button class="px-8 py-2.5 text-sm font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-all">Đóng case</button>
+<button class="px-10 py-2.5 text-sm font-bold text-white bg-[#2563EB] hover:bg-blue-700 shadow-lg shadow-blue-500/30 rounded-xl transition-all active:scale-95">Lưu thông tin</button>
+</div>
+</footer>
+</main>
+</body></html>

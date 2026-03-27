@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tạo/Sửa Sản phẩm đã mua - CRM Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-container": "#ffede6",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "inverse-on-surface": "#f0f1f3",
+                        "secondary": "#495c95",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-dim": "#d9dadc",
+                        "primary-container": "#2563eb",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "outline-variant": "#c3c6d7",
+                        "tertiary": "#943700",
+                        "surface-container": "#edeef0",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-primary-fixed": "#00174b",
+                        "tertiary-container": "#bc4800",
+                        "on-secondary-container": "#394c84",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "inverse-surface": "#2e3132",
+                        "on-primary-container": "#eeefff",
+                        "on-background": "#191c1e",
+                        "background": "#f8f9fb",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#0053db",
+                        "surface": "#f8f9fb",
+                        "surface-bright": "#f8f9fb",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#31447b",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#00174b",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "primary": "#004ac6",
+                        "surface-container-high": "#e7e8ea",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "tertiary-fixed": "#ffdbcd",
+                        "outline": "#737686",
+                        "surface-variant": "#e1e2e4",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e1e2e4",
+                        "secondary-container": "#acbfff",
+                        "on-tertiary-fixed": "#360f00",
+                        "on-surface-variant": "#434655",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "secondary-fixed": "#dbe1ff"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .form-glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="h-screen sticky left-0 top-0 w-64 bg-slate-50 dark:bg-slate-900 flex flex-col py-6 font-inter text-sm antialiased shrink-0 z-50">
+<div class="px-6 mb-10">
+<h1 class="text-lg font-bold text-blue-700 dark:text-blue-500">CRM Admin</h1>
+<p class="text-xs text-slate-500">Hệ thống quản lý</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-6 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-200/50 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span>
+<span>Tổng quan</span>
+</a>
+<a class="flex items-center px-6 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-200/50 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="group">group</span>
+<span>Khách hàng</span>
+</a>
+<!-- Active Tab: Sản phẩm đã mua -->
+<a class="flex items-center px-6 py-3 border-l-4 border-blue-600 bg-blue-50/50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300 font-semibold active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="shopping_bag">shopping_bag</span>
+<span>Sản phẩm đã mua</span>
+</a>
+<a class="flex items-center px-6 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-200/50 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="verified_user">verified_user</span>
+<span>Bảo hành</span>
+</a>
+<a class="flex items-center px-6 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-200/50 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span>
+<span>Cấu hình</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<div class="flex items-center p-3 rounded-xl bg-surface-container-low">
+<img alt="Admin CRM Logo" class="w-10 h-10 rounded-full mr-3" data-alt="User avatar for admin profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFWYlb0PHYHOKwYL-MdD2wCd7sqRP6xp_95veIuV5o2xWdhVlpK0wJuPcuVL7nbfNPYcOnN6RGL-8HAilG0Hg9gO_5ncX8Bw2VDYP5cTdVmUvs_y8FP1iaMgQ8hFcH0Ts3fPSMiQC6XjVzMEsKUl-juAGMRTlvTAcuTJpt4C1qfJgQPZqXv842ZlwLdTPyNRxEZTo8icLqtIxWBchTCAuIT8t1m1QS7tFnrmp3-1JzMR1vHM_FRtzM53uwUX03eWdcWdr69FJbShfJ"/>
+<div class="overflow-hidden">
+<p class="font-bold text-xs truncate">Admin Profile</p>
+<p class="text-[10px] text-slate-500">Quản trị viên</p>
+</div>
+</div>
+</div>
+</aside>
+<div class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-40 bg-white/85 dark:bg-slate-950/85 backdrop-blur-xl shadow-sm shadow-blue-900/5 flex justify-between items-center px-8 h-16 font-inter text-sm tracking-tight">
+<div class="flex items-center gap-6">
+<h2 class="text-lg font-extrabold text-primary">Quản lý Bảo hành</h2>
+<div class="hidden md:flex items-center bg-surface-container-low px-4 py-2 rounded-full focus-within:ring-2 focus-within:ring-blue-500/20 transition-all">
+<span class="material-symbols-outlined text-slate-400 text-lg mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-64" placeholder="Tìm kiếm nhanh..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center gap-6 mr-4">
+<a class="text-slate-500 hover:text-slate-800 transition-all" href="#">Báo cáo</a>
+<a class="text-slate-500 hover:text-slate-800 transition-all" href="#">Hướng dẫn</a>
+<a class="text-slate-500 hover:text-slate-800 transition-all" href="#">Hỗ trợ</a>
+</div>
+<div class="flex items-center gap-4 border-l pl-6 border-slate-200">
+<button class="relative text-slate-500 hover:text-blue-600 transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</button>
+<button class="text-slate-500 hover:text-blue-600 transition-all">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<img alt="User Avatar" class="w-8 h-8 rounded-full border border-slate-200" data-alt="Admin user small profile image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF6SkqzN9gkBKH3KMJP3U-vXrx7Ei1oHxw05fh05BVrgyRAjmufuhl0FqzBY2An1B_EyItfX31alwF8jTz62rtu3_ghV1NNZezA0wXLj5yqI74lKUCSlKK_4yqSZH0b1vIURl7gTqIWt83sTtBUfQaPktWVYCitWX-MHlkXHEygQJ1qJfQWrEcLPJAPGF8ctuLcew9f_q9jZ017NdxalhJMi2jalrpbDTTtpN5oWm34IwMUhqi2wq3nDP_Af1TdMjAY10J5qi8NU_M"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-8 pb-32">
+<!-- Breadcrumbs & Header -->
+<div class="mb-10">
+<nav class="flex text-xs text-slate-500 mb-2 gap-2">
+<a class="hover:text-primary" href="#">Sản phẩm đã mua</a>
+<span>/</span>
+<span class="text-slate-900 font-medium">Cập nhật thông tin</span>
+</nav>
+<h1 class="text-3xl font-extrabold tracking-tight text-on-surface">Cập nhật Sản phẩm Khách hàng</h1>
+<p class="text-slate-500 mt-1">Vui lòng điền đầy đủ thông tin để theo dõi lịch sử bảo hành sản phẩm.</p>
+</div>
+<form class="max-w-6xl mx-auto space-y-8">
+<!-- Form Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+<!-- Column 1: Client Info -->
+<section class="space-y-6">
+<div class="p-8 rounded-2xl bg-surface-container-lowest border border-transparent shadow-sm">
+<h3 class="text-lg font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+                                Thông tin khách hàng
+                            </h3>
+<div class="space-y-5">
+<div>
+<label class="block text-sm font-semibold text-slate-700 mb-1.5">Chọn Khách hàng <span class="text-error">*</span></label>
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-3 rounded-xl border-outline-variant bg-surface-container-low focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none" placeholder="Tìm tên, SĐT hoặc mã KH..." type="text" value="Nguyễn Văn A - 0987.654.321"/>
+</div>
+<p class="mt-1 text-xs text-slate-400 italic">Gợi ý: Tìm kiếm theo số điện thoại để chính xác hơn.</p>
+</div>
+<div>
+<label class="block text-sm font-semibold text-slate-700 mb-1.5">Sự kiện mua hàng (Không bắt buộc)</label>
+<select class="w-full px-4 py-3 rounded-xl border-outline-variant bg-surface-container-low focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none appearance-none">
+<option>Chọn chiến dịch hoặc sự kiện</option>
+<option selected="">Khai trương chi nhánh Quận 1</option>
+<option>Flash Sale tháng 10</option>
+<option>Tri ân khách hàng thân thiết</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-semibold text-slate-700 mb-1.5">Ghi chú chi tiết</label>
+<textarea class="w-full px-4 py-3 rounded-xl border-outline-variant bg-surface-container-low focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none resize-none" placeholder="Nhập thêm các lưu ý đặc biệt về lần mua hàng này..." rows="5">Sản phẩm mua làm quà tặng, khách yêu cầu đóng gói cẩn thận. Đã kiểm tra ngoại quan không trầy xước.</textarea>
+</div>
+</div>
+</div>
+</section>
+<!-- Column 2: Product & Warranty Info -->
+<section class="space-y-6">
+<div class="p-8 rounded-2xl bg-surface-container-lowest border border-transparent shadow-sm">
+<h3 class="text-lg font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="inventory_2">inventory_2</span>
+                                Chi tiết sản phẩm &amp; Bảo hành
+                            </h3>
+<div class="space-y-5">
+<div>
+<label class="block text-sm font-semibold text-slate-700 mb-1.5">Sản phẩm <span class="text-error">*</span></label>
+<input class="w-full px-4 py-3 rounded-xl border-error bg-error/5 focus:ring-2 focus:ring-error/20 focus:border-error transition-all outline-none" placeholder="Tên sản phẩm hoặc mã SKU" type="text" value="Laptop ASUS Zenbook S13 OLED"/>
+<p class="mt-1.5 text-xs text-error font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="error">error</span>
+                                        Vui lòng nhập tên sản phẩm hợp lệ.
+                                    </p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-semibold text-slate-700 mb-1.5">Số Serial <span class="text-error">*</span></label>
+<input class="w-full px-4 py-3 rounded-xl border-outline-variant bg-surface-container-low focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none" placeholder="S/N: 123456..." type="text" value="SN-ASUS-992102"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-slate-700 mb-1.5">Ngày mua</label>
+<input class="w-full px-4 py-3 rounded-xl border-outline-variant bg-surface-container-low focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none" type="date" value="2023-10-24"/>
+</div>
+</div>
+<div class="p-5 rounded-xl bg-blue-50/50 border border-blue-100/50">
+<div class="flex items-center justify-between mb-4">
+<label class="block text-sm font-bold text-blue-900">Chu kỳ bảo hành</label>
+<div class="flex items-center bg-white rounded-lg px-3 py-1 border border-blue-200 shadow-sm">
+<input class="w-12 border-none focus:ring-0 text-right font-bold text-blue-700 p-0 mr-1 bg-transparent" type="number" value="24"/>
+<span class="text-xs text-blue-500 font-medium">tháng</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<span class="text-[10px] uppercase tracking-wider font-bold text-slate-400">Ngày bắt đầu</span>
+<div class="text-sm font-semibold text-slate-700 py-1 border-b border-dashed border-slate-300">24/10/2023</div>
+</div>
+<div class="space-y-1">
+<span class="text-[10px] uppercase tracking-wider font-bold text-blue-600">Ngày kết thúc (Dự kiến)</span>
+<div class="text-sm font-bold text-blue-700 py-1 border-b border-blue-300">24/10/2025</div>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2 text-[11px] text-blue-500 bg-blue-100/30 p-2 rounded-lg">
+<span class="material-symbols-outlined text-sm" data-icon="info">info</span>
+<span>Ngày kết thúc được tự động tính dựa trên ngày mua và số tháng bảo hành.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</form>
+</main>
+<!-- Sticky Footer Actions -->
+<footer class="fixed bottom-0 right-0 left-64 h-20 bg-white/90 backdrop-blur-xl flex items-center justify-between px-10 border-t-0 shadow-[0_-8px_30px_rgba(0,0,0,0.04)] z-40">
+<div class="flex items-center gap-2 text-slate-400">
+<span class="material-symbols-outlined text-sm" data-icon="history">history</span>
+<span class="text-xs">Lần cuối cập nhật bởi Admin lúc 10:45 AM</span>
+</div>
+<div class="flex gap-4">
+<button class="px-8 py-2.5 rounded-lg font-semibold text-slate-600 hover:bg-slate-100 transition-all">Hủy</button>
+<button class="px-10 py-2.5 rounded-lg font-bold text-white bg-gradient-to-br from-primary to-primary-container shadow-lg shadow-blue-500/20 hover:scale-[1.02] active:scale-95 transition-all">Lưu thông tin</button>
+</div>
+</footer>
+</div>
+</body></html>

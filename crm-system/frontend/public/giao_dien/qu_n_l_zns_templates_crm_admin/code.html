@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quản lý ZNS Templates - CRM Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container": "#edeef0",
+                        "on-secondary-container": "#394c84",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "surface": "#f8f9fb",
+                        "on-tertiary-container": "#ffede6",
+                        "inverse-surface": "#2e3132",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e7e8ea",
+                        "on-primary-container": "#eeefff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-background": "#191c1e",
+                        "background": "#f8f9fb",
+                        "tertiary-container": "#bc4800",
+                        "secondary-container": "#acbfff",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-primary-fixed": "#00174b",
+                        "tertiary": "#943700",
+                        "outline": "#737686",
+                        "surface-tint": "#0053db",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "inverse-primary": "#b4c5ff",
+                        "secondary": "#495c95",
+                        "primary": "#004ac6",
+                        "on-tertiary-fixed": "#360f00",
+                        "surface-bright": "#f8f9fb",
+                        "outline-variant": "#c3c6d7",
+                        "on-secondary-fixed-variant": "#31447b",
+                        "inverse-on-surface": "#f0f1f3",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "secondary-fixed": "#dbe1ff",
+                        "on-surface-variant": "#434655",
+                        "on-surface": "#191c1e",
+                        "surface-variant": "#e1e2e4",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d9dadc",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "primary-container": "#2563eb",
+                        "on-secondary-fixed": "#00174b",
+                        "tertiary-fixed": "#ffdbcd"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.375rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-slate-50 dark:bg-slate-900 flex flex-col py-6 z-50 transition-all duration-300">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+<div>
+<h1 class="text-xl font-bold text-blue-700 dark:text-blue-500 leading-tight">CRM Admin</h1>
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">The Precision Architect</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1 px-3">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 font-medium text-sm" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 font-medium text-sm" href="#">
+<span class="material-symbols-outlined">group</span> Khách hàng
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 font-medium text-sm" href="#">
+<span class="material-symbols-outlined">event_repeat</span> Tương tác &amp; Nhắc việc
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 font-medium text-sm" href="#">
+<span class="material-symbols-outlined">shopping_cart</span> Mua hàng
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 font-medium text-sm" href="#">
+<span class="material-symbols-outlined">inventory_2</span> Sản phẩm đã mua
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 font-medium text-sm" href="#">
+<span class="material-symbols-outlined">verified_user</span> Bảo hành
+            </a>
+<!-- Active Tab: Zalo ZNS -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-blue-700 dark:text-blue-400 border-l-4 border-blue-600 bg-white dark:bg-slate-800 font-semibold text-sm shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span> Zalo ZNS
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 font-medium text-sm" href="#">
+<span class="material-symbols-outlined">smart_toy</span> Automation
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 font-medium text-sm" href="#">
+<span class="material-symbols-outlined">settings</span> Quản trị hệ thống
+            </a>
+</nav>
+<div class="px-6 mt-auto">
+<div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl">
+<div class="flex items-center gap-3">
+<img alt="Admin Profile" class="w-10 h-10 rounded-full bg-white shadow-sm" data-alt="Admin avatar image for profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPUOKMGh810W59SSAyMU2lZzWjGEBpeDb7o3PI3YoCapWeaI0yytAFm055lNyHGDHU_Kl5BixFDolNVz9fcr73o5NMAE9pX2Y16o_KF7IpEdY2Lxsqo1foHOdFTUQSc2Oz9RTId9vDGkOgX08pOLl0GynDPTQE1xxZldCU-I7mEycU5YPyCSJejYK7LTCW2lWNr6kgK8Lj_9j33zLyvjVwtl2YuMAqdne3d5hndjMTm3Ri8StVjoecgYXp68O2sID7EFmBCUmg2xX-"/>
+<div class="overflow-hidden">
+<p class="text-xs font-bold text-on-surface truncate">Nguyễn Văn A</p>
+<p class="text-[10px] text-slate-500">Quản trị viên</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 glass-panel z-40 flex items-center justify-between px-8">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none" placeholder="Tìm kiếm template ZNS..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-slate-500 hover:text-primary transition-opacity relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</button>
+<button class="text-slate-500 hover:text-primary flex items-center gap-1 text-sm font-medium">
+<span class="material-symbols-outlined">help_outline</span> Hỗ trợ
+            </button>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<span class="text-sm font-semibold text-primary">CRM Dashboard</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen">
+<div class="p-8 max-w-7xl mx-auto">
+<!-- Page Header -->
+<div class="flex items-end justify-between mb-8">
+<div>
+<nav class="flex items-center gap-2 text-xs text-slate-400 mb-2">
+<span>Zalo ZNS</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-slate-600 font-medium">Quản lý Templates</span>
+</nav>
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight">Cấu hình ZNS Templates</h2>
+<p class="text-slate-500 text-sm mt-1">Quản lý và đồng bộ danh sách tin nhắn Zalo Notification Service.</p>
+</div>
+<button class="bg-primary-container text-white px-5 py-2.5 rounded-lg flex items-center gap-2 font-semibold text-sm shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-100 transition-all">
+<span class="material-symbols-outlined text-lg">add</span>
+                    Tạo Template mới
+                </button>
+</div>
+<!-- Dashboard Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-transparent hover:border-primary/10 transition-all">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Tổng Template</p>
+<p class="text-3xl font-black text-on-surface">48</p>
+<div class="mt-2 flex items-center text-xs text-emerald-600 font-bold bg-emerald-50 w-fit px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-sm">trending_up</span> +3 tháng này
+                    </div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-transparent">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Đang hoạt động</p>
+<p class="text-3xl font-black text-primary">32</p>
+<p class="text-xs text-slate-400 mt-2">67% tỷ lệ sử dụng</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-transparent">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Chờ phê duyệt</p>
+<p class="text-3xl font-black text-tertiary">12</p>
+<p class="text-xs text-slate-400 mt-2">Đang xử lý tại Zalo</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-transparent">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Bị từ chối</p>
+<p class="text-3xl font-black text-error">4</p>
+<p class="text-xs text-slate-400 mt-2">Cần sửa đổi nội dung</p>
+</div>
+</div>
+<!-- Table Section -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden mb-8">
+<!-- Filters Bar -->
+<div class="p-4 flex items-center justify-between border-b border-surface-container">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-surface-container-low rounded-lg text-sm font-medium text-slate-600 cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-lg">filter_list</span>
+                            Lọc danh mục
+                        </div>
+<div class="flex items-center gap-2 px-3 py-1.5 bg-surface-container-low rounded-lg text-sm font-medium text-slate-600 cursor-pointer hover:bg-surface-container-high transition-colors">
+                            Trạng thái: Tất cả
+                            <span class="material-symbols-outlined text-lg">expand_more</span>
+</div>
+</div>
+<div class="text-xs text-slate-400">Hiển thị 10 trong số 48 kết quả</div>
+</div>
+<!-- Template Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">Tên Template</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">Zalo Template ID</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">Danh mục</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">Trạng thái</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-on-surface">Xác nhận đơn hàng</span>
+<span class="text-[10px] text-slate-400">Cập nhật: 12/10/2023</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<code class="text-xs font-mono text-primary bg-primary/5 px-2 py-1 rounded">2847192</code>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-medium px-2 py-1 bg-surface-container-high rounded-full text-slate-600">Giao dịch</span>
+</td>
+<td class="px-6 py-4">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+<span class="ml-2 text-xs font-semibold text-emerald-600">Active</span>
+</label>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-slate-400 hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-on-surface">Nhắc lịch bảo hành</span>
+<span class="text-[10px] text-slate-400">Cập nhật: 05/10/2023</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<code class="text-xs font-mono text-primary bg-primary/5 px-2 py-1 rounded">2845501</code>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-medium px-2 py-1 bg-surface-container-high rounded-full text-slate-600">Chăm sóc</span>
+</td>
+<td class="px-6 py-4">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+<span class="ml-2 text-xs font-semibold text-emerald-600">Active</span>
+</label>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-slate-400 hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 (Inactive) -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-on-surface">Khuyến mãi sinh nhật</span>
+<span class="text-[10px] text-slate-400">Cập nhật: 28/09/2023</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<code class="text-xs font-mono text-primary bg-primary/5 px-2 py-1 rounded">2841092</code>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-medium px-2 py-1 bg-surface-container-high rounded-full text-slate-600">Ưu đãi</span>
+</td>
+<td class="px-6 py-4">
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+<span class="ml-2 text-xs font-semibold text-slate-400">Inactive</span>
+</label>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-slate-400 hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Empty State Example (Hidden) -->
+<div class="hidden p-20 flex flex-col items-center justify-center text-center">
+<div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-slate-400 text-3xl">inbox_customize</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface">Chưa có Template nào</h3>
+<p class="text-slate-500 text-sm max-w-xs mt-2">Bắt đầu bằng cách tạo template đầu tiên hoặc đồng bộ từ Zalo OA của bạn.</p>
+</div>
+<!-- Loading State Example (Hidden) -->
+<div class="hidden p-20 flex flex-col items-center justify-center">
+<div class="animate-spin w-10 h-10 border-4 border-primary/20 border-t-primary rounded-full mb-4"></div>
+<p class="text-slate-500 text-sm font-medium">Đang tải dữ liệu...</p>
+</div>
+<!-- Error State Example (Hidden) -->
+<div class="hidden p-20 flex flex-col items-center justify-center text-center">
+<div class="w-16 h-16 bg-error-container/20 rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-error text-3xl">error</span>
+</div>
+<h3 class="text-lg font-bold text-error">Lỗi kết nối Zalo API</h3>
+<p class="text-slate-500 text-sm max-w-xs mt-2">Không thể tải danh sách template. Vui lòng kiểm tra cấu hình Access Token.</p>
+<button class="mt-4 px-4 py-2 bg-error text-white text-xs font-bold rounded-lg">Thử lại</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Drawer/Modal for Create/Edit Template (Right Side Drawer Pattern) -->
+<div class="fixed inset-0 z-[100] bg-on-surface/40 backdrop-blur-sm flex justify-end">
+<div class="w-full max-w-xl bg-white h-full shadow-2xl flex flex-col transform transition-transform duration-300">
+<!-- Drawer Header -->
+<div class="px-8 py-6 border-b border-surface-container flex items-center justify-between">
+<div>
+<h3 class="text-xl font-bold text-on-surface">Tạo Template ZNS Mới</h3>
+<p class="text-xs text-slate-400 mt-1">Thông tin template phải trùng khớp với cấu hình trên Zalo Cloud.</p>
+</div>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined text-slate-400">close</span>
+</button>
+</div>
+<!-- Drawer Body (Scrollable) -->
+<div class="flex-1 overflow-y-auto px-8 py-8 space-y-8">
+<!-- Base Info -->
+<section class="space-y-4">
+<h4 class="text-xs font-bold text-primary uppercase tracking-widest flex items-center gap-2">
+<span class="w-4 h-[2px] bg-primary"></span>
+                        Thông tin cơ bản
+                    </h4>
+<div class="grid grid-cols-1 gap-4">
+<div class="space-y-1.5">
+<label class="text-xs font-bold text-slate-600">Tên Template <span class="text-error">*</span></label>
+<input class="w-full px-4 py-2.5 bg-surface border border-outline-variant/30 rounded-lg text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="Ví dụ: Thông báo giao hàng thành công" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="text-xs font-bold text-slate-600">Zalo Template ID <span class="text-error">*</span></label>
+<input class="w-full px-4 py-2.5 bg-surface border border-outline-variant/30 rounded-lg text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all font-mono" placeholder="ID số từ Zalo Cloud" type="text"/>
+</div>
+<div class="space-y-1.5">
+<label class="text-xs font-bold text-slate-600">Danh mục</label>
+<select class="w-full px-4 py-2.5 bg-surface border border-outline-variant/30 rounded-lg text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all">
+<option>Giao dịch</option>
+<option>Chăm sóc</option>
+<option>Ưu đãi</option>
+<option>Khác</option>
+</select>
+</div>
+</div>
+</div>
+</section>
+<!-- Variable Builder -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h4 class="text-xs font-bold text-primary uppercase tracking-widest flex items-center gap-2">
+<span class="w-4 h-[2px] bg-primary"></span>
+                            Cấu hình tham số (Variables)
+                        </h4>
+<button class="text-xs font-bold text-primary-container flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+                            Thêm biến
+                        </button>
+</div>
+<div class="space-y-3">
+<!-- Header for Variable List -->
+<div class="grid grid-cols-12 gap-3 px-2">
+<div class="col-span-5 text-[10px] font-bold text-slate-400 uppercase">Key (Zalo Variable)</div>
+<div class="col-span-6 text-[10px] font-bold text-slate-400 uppercase">Giá trị (CRM Field / Tĩnh)</div>
+<div class="col-span-1"></div>
+</div>
+<!-- Variable Row 1 -->
+<div class="grid grid-cols-12 gap-3 items-center">
+<div class="col-span-5">
+<input class="w-full px-3 py-2 bg-surface border border-outline-variant/30 rounded-lg text-xs font-mono" type="text" value="customer_name"/>
+</div>
+<div class="col-span-6">
+<select class="w-full px-3 py-2 bg-surface border border-outline-variant/30 rounded-lg text-xs font-medium text-slate-600">
+<option>[Khách hàng] Họ tên</option>
+<option>[Đơn hàng] Mã đơn</option>
+<option>Giá trị tĩnh (Static)</option>
+</select>
+</div>
+<div class="col-span-1 text-right">
+<button class="text-slate-300 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+<!-- Variable Row 2 -->
+<div class="grid grid-cols-12 gap-3 items-center">
+<div class="col-span-5">
+<input class="w-full px-3 py-2 bg-surface border border-outline-variant/30 rounded-lg text-xs font-mono" type="text" value="order_id"/>
+</div>
+<div class="col-span-6">
+<select class="w-full px-3 py-2 bg-surface border border-outline-variant/30 rounded-lg text-xs font-medium text-slate-600">
+<option selected="">[Đơn hàng] Mã đơn</option>
+<option>[Khách hàng] Họ tên</option>
+<option>Giá trị tĩnh (Static)</option>
+</select>
+</div>
+<div class="col-span-1 text-right">
+<button class="text-slate-300 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+<!-- Variable Row 3 -->
+<div class="grid grid-cols-12 gap-3 items-center">
+<div class="col-span-5">
+<input class="w-full px-3 py-2 bg-surface border border-outline-variant/30 rounded-lg text-xs italic" placeholder="key_name..." type="text"/>
+</div>
+<div class="col-span-6">
+<input class="w-full px-3 py-2 bg-surface border border-outline-variant/30 rounded-lg text-xs" placeholder="Nhập giá trị tĩnh..." type="text"/>
+</div>
+<div class="col-span-1 text-right">
+<button class="text-slate-300 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+</div>
+<div class="p-4 bg-primary/5 rounded-xl border border-primary/10">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-primary-container">info</span>
+<p class="text-[11px] text-slate-600 leading-relaxed">
+<strong class="text-primary-container">Mẹo:</strong> Sử dụng các biến nằm trong dấu ngoặc nhọn <code class="bg-white px-1">{}</code> trên trang Zalo Cloud để mapping chính xác với dữ liệu từ CRM.
+                            </p>
+</div>
+</div>
+</section>
+</div>
+<!-- Drawer Footer -->
+<div class="px-8 py-6 border-t border-surface-container flex items-center justify-end gap-3 bg-slate-50">
+<button class="px-6 py-2.5 text-sm font-bold text-slate-500 hover:bg-slate-200 rounded-lg transition-colors">Hủy bỏ</button>
+<button class="px-8 py-2.5 text-sm font-bold bg-primary-container text-white rounded-lg shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all">Lưu Template</button>
+</div>
+</div>
+</div>
+</body></html>

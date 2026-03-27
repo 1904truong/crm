@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CSKH — Tạo/Sửa tương tác</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#00174b",
+                        "surface-dim": "#d9dadc",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#943700",
+                        "on-background": "#191c1e",
+                        "on-primary-fixed": "#00174b",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#434655",
+                        "primary-container": "#2563eb",
+                        "outline": "#737686",
+                        "on-surface": "#191c1e",
+                        "secondary-fixed": "#dbe1ff",
+                        "inverse-on-surface": "#f0f1f3",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "outline-variant": "#c3c6d7",
+                        "tertiary-container": "#bc4800",
+                        "surface-variant": "#e1e2e4",
+                        "tertiary-fixed": "#ffdbcd",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-tertiary-container": "#ffede6",
+                        "on-primary-container": "#eeefff",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "surface-container": "#edeef0",
+                        "primary": "#004ac6",
+                        "inverse-surface": "#2e3132",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-bright": "#f8f9fb",
+                        "secondary": "#495c95",
+                        "on-tertiary-fixed": "#360f00",
+                        "on-secondary-container": "#394c84",
+                        "secondary-container": "#acbfff",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#0053db",
+                        "background": "#f8f9fb",
+                        "on-secondary-fixed-variant": "#31447b",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e7e8ea"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<div class="flex min-h-screen">
+<!-- SideNavBar - JSON Data Execution -->
+<aside class="h-screen sticky left-0 top-0 w-64 border-r-0 bg-slate-50 dark:bg-slate-900 flex flex-col overflow-y-auto z-50">
+<div class="p-6">
+<h1 class="text-xl font-bold tracking-tight text-[#004ac6] dark:text-blue-500">CRM Admin</h1>
+<p class="text-xs text-slate-500 mt-1">The Precision Architect</p>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 transition-colors hover:bg-[#e7e8ea] dark:hover:bg-slate-700/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium text-sm">Bảng điều khiển</span>
+</a>
+<!-- Active Item: Tương tác & Nhắc việc -->
+<a class="relative flex items-center gap-3 px-4 py-3 text-[#004ac6] font-semibold before:absolute before:left-0 before:w-1 before:h-8 before:bg-[#004ac6] before:rounded-r-full translate-x-1 duration-200 transition-transform bg-[#f2f4f6] dark:bg-slate-800/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">event_upcoming</span>
+<span class="font-medium text-sm">Tương tác &amp; Nhắc việc</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 transition-colors hover:bg-[#e7e8ea] dark:hover:bg-slate-700/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-medium text-sm">Đơn mua hàng</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 transition-colors hover:bg-[#e7e8ea] dark:hover:bg-slate-700/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium text-sm">Cấu hình</span>
+</a>
+</nav>
+<div class="p-4 mt-auto border-t border-slate-200/50 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container overflow-hidden">
+<img alt="Admin Avatar" data-alt="Admin profile avatar placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0hpD18eZ2rh0BkbK3N3vp-OFf7kL3QUplC3NVezE6O9kNMnL7OTldgk1ILF5Fr9znI8M_g_oy_lhVQGTQ46amLufPUXFS9fUChds06Froa17IJoo55gnc1meiMT3jxMVz1k2QK0ibH4WI_zQjc6Gv-mnG1khA_hejwR4pNnTY5RmcJgky9kvNqGqq6afqJAxbjrMgRjVwGJBgaoVO3qfnhRjyL3gAZu-bHDS3BWBUmX2TyvB1VNagRPgE4H3_MErTu159AQZNOCh9"/>
+</div>
+<div>
+<p class="text-sm font-semibold text-slate-900">Admin User</p>
+<p class="text-xs text-slate-500">Quản trị viên</p>
+</div>
+</div>
+</aside>
+<div class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar - JSON Data Execution -->
+<header class="sticky top-0 w-full z-40 bg-white/85 dark:bg-slate-950/85 backdrop-blur-xl shadow-[0_16px_48px_rgba(0,74,198,0.08)]">
+<div class="flex justify-between items-center h-16 px-8 w-full">
+<div class="flex items-center gap-6 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Tìm kiếm hệ thống..." type="text"/>
+</div>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-600 dark:text-slate-400 font-medium font-['Inter'] text-sm tracking-wide hover:text-[#004ac6] transition-colors" href="#">Tổng quan</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium font-['Inter'] text-sm tracking-wide hover:text-[#004ac6] transition-colors" href="#">Báo cáo</a>
+<a class="text-[#004ac6] border-b-2 border-[#004ac6] pb-1 font-['Inter'] text-sm tracking-wide" href="#">Lịch trình</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:text-primary transition-transform active:scale-90">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-primary transition-transform active:scale-90">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-primary transition-transform active:scale-90">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 p-8 pb-32">
+<div class="max-w-5xl mx-auto">
+<!-- Header Section -->
+<div class="mb-8 flex items-center justify-between">
+<div>
+<nav class="flex gap-2 text-xs text-slate-500 mb-2">
+<span>CSKH</span>
+<span>/</span>
+<span class="text-primary font-medium">Tương tác</span>
+</nav>
+<h2 class="text-3xl font-extrabold tracking-tight text-on-surface">Ghi nhận tương tác mới</h2>
+<p class="text-slate-500 mt-1">Cập nhật chi tiết hoạt động chăm sóc khách hàng vào hệ thống.</p>
+</div>
+</div>
+<!-- Form Section using Tonal Layering -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+<!-- Left Column -->
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-on-surface-variant">Chọn khách hàng <span class="text-error">*</span></label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">person</span>
+<select class="w-full pl-10 pr-4 py-2.5 bg-surface-container-low border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20 appearance-none">
+<option>Nguyễn Văn A</option>
+<option>Trần Thị B</option>
+<option>Lê Văn C</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-on-surface-variant">Loại tương tác <span class="text-error">*</span></label>
+<div class="grid grid-cols-2 gap-3">
+<label class="flex items-center gap-3 p-3 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container-high transition-colors ring-1 ring-transparent has-[:checked]:ring-primary/50 has-[:checked]:bg-primary/5">
+<input checked="" class="hidden" name="type" type="radio"/>
+<span class="material-symbols-outlined text-primary">call</span>
+<span class="text-sm font-medium">Gọi điện</span>
+</label>
+<label class="flex items-center gap-3 p-3 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container-high transition-colors ring-1 ring-transparent has-[:checked]:ring-primary/50 has-[:checked]:bg-primary/5">
+<input class="hidden" name="type" type="radio"/>
+<span class="material-symbols-outlined text-slate-500">mail</span>
+<span class="text-sm font-medium">Email</span>
+</label>
+<label class="flex items-center gap-3 p-3 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container-high transition-colors ring-1 ring-transparent has-[:checked]:ring-primary/50 has-[:checked]:bg-primary/5">
+<input class="hidden" name="type" type="radio"/>
+<span class="material-symbols-outlined text-slate-500">chat</span>
+<span class="text-sm font-medium">Zalo</span>
+</label>
+<label class="flex items-center gap-3 p-3 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container-high transition-colors ring-1 ring-transparent has-[:checked]:ring-primary/50 has-[:checked]:bg-primary/5">
+<input class="hidden" name="type" type="radio"/>
+<span class="material-symbols-outlined text-slate-500">groups</span>
+<span class="text-sm font-medium">Gặp mặt</span>
+</label>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-on-surface-variant">Người thực hiện</label>
+<div class="relative">
+<select class="w-full px-4 py-2.5 bg-surface-container-low border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20 appearance-none">
+<option>Admin User (Bạn)</option>
+<option>Nguyễn Văn Sales</option>
+<option>Trần Thị Support</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">unfold_more</span>
+</div>
+</div>
+</div>
+<!-- Right Column -->
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-on-surface-variant">Thời gian tương tác</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">calendar_today</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface-container-low border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20" type="datetime-local" value="2023-10-27T14:30"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-on-surface-variant">Nội dung tương tác</label>
+<textarea class="w-full px-4 py-3 bg-surface-container-low border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20 resize-none" placeholder="Ghi chú tóm tắt nội dung trao đổi..." rows="5"></textarea>
+</div>
+<div class="pt-2">
+<div class="flex items-center justify-between p-4 bg-primary/5 rounded-xl border border-primary/10">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-primary">notifications_active</span>
+<div>
+<p class="text-sm font-bold text-primary">Tạo nhắc việc theo dõi</p>
+<p class="text-xs text-slate-500">Hệ thống sẽ gửi thông báo cho bạn</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Conditional reminder time -->
+<div class="mt-4 space-y-2">
+<label class="block text-sm font-semibold text-on-surface-variant">Thời gian nhắc việc</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">alarm</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface-container-low border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20" type="datetime-local"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Sticky Footer -->
+<footer class="fixed bottom-0 right-0 left-64 bg-white/80 backdrop-blur-md border-t border-slate-100 px-8 py-4 z-40">
+<div class="max-w-5xl mx-auto flex justify-end items-center gap-4">
+<button class="px-6 py-2.5 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">Hủy</button>
+<button class="px-8 py-2.5 text-sm font-bold text-white bg-gradient-to-br from-primary to-primary-container rounded-lg shadow-lg shadow-primary/20 hover:opacity-90 transition-all active:scale-95">
+                        Lưu tương tác
+                    </button>
+</div>
+</footer>
+</div>
+</div>
+<!-- Success Toast - Glassmorphism & Tonal Layering -->
+<div class="fixed top-6 right-6 z-[100] animate-in slide-in-from-right duration-500">
+<div class="flex items-center gap-4 p-4 pr-6 bg-white/90 backdrop-blur-xl rounded-xl shadow-[0_16px_48px_rgba(0,74,198,0.12)] border-l-4 border-green-500">
+<div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-green-600 text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900">Thành công</h4>
+<p class="text-xs text-slate-500">Đã lưu thông tin tương tác thành công</p>
+</div>
+<button class="ml-4 text-slate-400 hover:text-slate-600">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+</div>
+</body></html>

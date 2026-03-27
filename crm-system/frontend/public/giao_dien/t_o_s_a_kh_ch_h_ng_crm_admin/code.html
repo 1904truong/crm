@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus CRM - Tạo Khách hàng</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "secondary": "#495c95",
+                        "outline-variant": "#c3c6d7",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-secondary-container": "#394c84",
+                        "primary-container": "#2563eb",
+                        "surface-tint": "#0053db",
+                        "on-tertiary-fixed": "#360f00",
+                        "secondary-fixed": "#dbe1ff",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-dim": "#d9dadc",
+                        "tertiary-container": "#bc4800",
+                        "on-surface-variant": "#434655",
+                        "on-primary-container": "#eeefff",
+                        "tertiary": "#943700",
+                        "on-secondary-fixed-variant": "#31447b",
+                        "surface-bright": "#f8f9fb",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "on-secondary-fixed": "#00174b",
+                        "inverse-on-surface": "#f0f1f3",
+                        "secondary-container": "#acbfff",
+                        "on-background": "#191c1e",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e7e8ea",
+                        "background": "#f8f9fb",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "outline": "#737686",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-tertiary-container": "#ffede6",
+                        "surface": "#f8f9fb",
+                        "on-primary-fixed": "#00174b",
+                        "primary": "#004ac6",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-container": "#edeef0",
+                        "surface-variant": "#e1e2e4",
+                        "on-surface": "#191c1e",
+                        "tertiary-fixed": "#ffdbcd"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-50 bg-[#f2f4f6] dark:bg-slate-950 flex flex-col py-6 px-4 space-y-2">
+<div class="px-4 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white font-black text-lg">N</div>
+<div>
+<h1 class="text-lg font-black text-blue-800 dark:text-blue-300 leading-none">Nexus Admin</h1>
+<p class="text-[10px] font-semibold tracking-wider text-slate-500 uppercase mt-1">The Precision Architect</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="group flex items-center px-4 py-3 text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition-colors rounded-lg font-semibold text-sm" href="#"><span class="material-symbols-outlined mr-3">dashboard</span> Bảng điều khiển</a>
+<a class="group flex items-center px-4 py-3 relative text-blue-700 dark:text-blue-400 before:absolute before:left-0 before:w-1 before:h-8 before:bg-blue-600 before:rounded-r-full font-semibold text-sm bg-blue-50/50" href="#"><span class="material-symbols-outlined mr-3">group</span> Khách hàng</a>
+<a class="group flex items-center px-4 py-3 text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition-colors rounded-lg font-semibold text-sm" href="#"><span class="material-symbols-outlined mr-3">handshake</span> Cơ hội</a>
+<a class="group flex items-center px-4 py-3 text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition-colors rounded-lg font-semibold text-sm" href="#"><span class="material-symbols-outlined mr-3">inventory_2</span> Sản phẩm</a>
+<a class="group flex items-center px-4 py-3 text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition-colors rounded-lg font-semibold text-sm" href="#"><span class="material-symbols-outlined mr-3">bar_chart</span> Báo cáo</a>
+<a class="group flex items-center px-4 py-3 text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition-colors rounded-lg font-semibold text-sm" href="#"><span class="material-symbols-outlined mr-3">settings</span> Cài đặt</a>
+</nav>
+<div class="pt-6 mt-6 border-t border-slate-200/50 flex flex-col space-y-1">
+<a class="group flex items-center px-4 py-2 text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition-colors rounded-lg font-semibold text-sm" href="#"><span class="material-symbols-outlined mr-3">help</span> Trung tâm trợ giúp</a>
+<a class="group flex items-center px-4 py-2 text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition-colors rounded-lg font-semibold text-sm" href="#"><span class="material-symbols-outlined mr-3">logout</span> Đăng xuất</a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 z-40 w-full bg-white/85 backdrop-blur-xl flex justify-between items-center h-16 px-8 ml-64 shadow-[0_16px_48px_rgba(0,74,198,0.08)]">
+<div class="flex items-center gap-6 ml-64">
+<h2 class="text-xl font-bold tracking-tighter text-blue-700">Tạo Khách hàng mới</h2>
+<nav class="hidden md:flex items-center space-y-0 space-x-6">
+<a class="text-slate-500 hover:text-blue-600 font-medium text-sm transition-all" href="#">Trang chủ</a>
+<a class="text-blue-700 border-b-2 border-blue-600 pb-1 font-medium text-sm" href="#">Khách hàng</a>
+<a class="text-slate-500 hover:text-blue-600 font-medium text-sm transition-all" href="#">Hỗ trợ</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-blue-50 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-blue-50 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-px bg-slate-200 mx-2"></div>
+<div class="flex items-center gap-3">
+<span class="text-sm font-semibold text-slate-700">Alex Nguyen</span>
+<img alt="User profile" class="w-10 h-10 rounded-full bg-slate-200 border-2 border-white shadow-sm" data-alt="Professional user avatar for CRM admin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxUC7jgoXGzecMnBYX_OHiTlXVTsRiPUSt6PxtLLQM0eoimtMCjPDro0n6pYiS3gNiA52npqqdrLVkW-Kwah2rofgFPqxqrnIB5x305ewegBJoWULlJIH7J6I-R02nCzZdDowvyvkT-YDW8iObdqbThYxAPjqXl2NcBAF9jHrpDz5VMt6CX7OQkDpjQ7wpM36O-lD0KijYV8s0m1JNGZHob5Q4wAJmWeSyoFa15pMbtKI-QnR8OntKmvKGm7jpRMicoxMkpA8p9jQY"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 pb-24 min-h-screen bg-surface-container-low">
+<div class="max-w-6xl mx-auto px-8 py-10">
+<form class="space-y-8">
+<!-- Section: Basic Information -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<div class="flex items-center gap-2 mb-8">
+<span class="w-1 h-6 bg-primary rounded-full"></span>
+<h3 class="text-lg font-bold text-on-surface tracking-tight">Thông tin cơ bản</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+<!-- Input Group -->
+<div class="space-y-2">
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-widest">Họ và tên <span class="text-error">*</span></label>
+<input class="w-full bg-surface-container-low border-0 focus:ring-2 focus:ring-primary rounded-lg px-4 py-3 text-sm transition-all placeholder:text-slate-400" placeholder="Nguyễn Văn A" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-widest">Mã khách hàng</label>
+<div class="relative">
+<input class="w-full bg-slate-100 border-0 rounded-lg px-4 py-3 text-sm text-slate-500 font-mono cursor-not-allowed" disabled="" type="text" value="CUS-2024-001"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">lock</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-widest">Phân loại khách hàng <span class="text-error">*</span></label>
+<select class="w-full bg-surface-container-low border-0 focus:ring-2 focus:ring-primary rounded-lg px-4 py-3 text-sm transition-all">
+<option>Khách hàng cá nhân</option>
+<option>Doanh nghiệp</option>
+<option>Đối tác chiến lược</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-widest">Nguồn khách hàng</label>
+<select class="w-full bg-surface-container-low border-0 focus:ring-2 focus:ring-primary rounded-lg px-4 py-3 text-sm transition-all">
+<option>Facebook Ads</option>
+<option>Giới thiệu</option>
+<option>Website</option>
+<option>Khác</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-widest">Người phụ trách</label>
+<div class="flex items-center gap-2 bg-surface-container-low rounded-lg px-3 py-1.5 border border-transparent focus-within:ring-2 focus-within:ring-primary">
+<img class="w-6 h-6 rounded-full" data-alt="Staff member profile small" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCBhncrCLmIASYCb9iniP0-IuQ952SBCfZcEONnFEdYwwZfdd36kjbsNCJKTycFuLMAbHdAjXSGlfkQXDmGeEiYzhY-nqBG0V7IjETS9w1UrCOuOLSqGPcSTKnFSbVSoMExz7ae5U_KFrSEuuRc_-5Pb6U3wHrzS2T3VbbdjnuiSlPj6ooI6Aa362evwNlAULsr6jiJWBIGF802d1WyKxenKKD9C2_RlsYSnYmC2kMV0DD44Eu7FWOmI3Rkyp6wvNMOBauJtFwXJcg"/>
+<span class="text-sm font-medium">Trần Thị B</span>
+<span class="material-symbols-outlined ml-auto text-slate-400 cursor-pointer">expand_more</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-widest">Trạng thái <span class="text-error">*</span></label>
+<div class="flex gap-3">
+<label class="flex-1 cursor-pointer">
+<input checked="" class="hidden peer" name="status" type="radio"/>
+<div class="text-center py-2 text-sm font-semibold rounded-lg border-2 border-transparent bg-slate-50 text-slate-500 peer-checked:bg-blue-50 peer-checked:text-blue-700 peer-checked:border-blue-600 transition-all">Hoạt động</div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="hidden peer" name="status" type="radio"/>
+<div class="text-center py-2 text-sm font-semibold rounded-lg border-2 border-transparent bg-slate-50 text-slate-500 peer-checked:bg-red-50 peer-checked:text-red-700 peer-checked:border-red-600 transition-all">Tạm dừng</div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Contact (Repeater Table) -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-2">
+<span class="w-1 h-6 bg-primary rounded-full"></span>
+<h3 class="text-lg font-bold text-on-surface tracking-tight">Thông tin liên hệ</h3>
+</div>
+<button class="flex items-center gap-2 text-sm font-bold text-primary hover:bg-blue-50 px-4 py-2 rounded-lg transition-all" type="button">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+                            Thêm liên hệ
+                        </button>
+</div>
+<div class="overflow-hidden rounded-xl border border-outline-variant/30">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low border-b border-outline-variant/30">
+<tr>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-widest">Loại</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-widest">Giá trị liên hệ</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-widest text-center">Chính</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-widest text-right">Hành động</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<select class="bg-transparent border-0 focus:ring-0 text-sm font-medium w-full">
+<option>Số điện thoại</option>
+<option>Email</option>
+<option>Zalo</option>
+</select>
+</td>
+<td class="px-6 py-4">
+<input class="bg-transparent border-0 focus:ring-0 text-sm w-full font-mono" type="text" value="0987 654 321"/>
+</td>
+<td class="px-6 py-4 text-center">
+<input checked="" class="w-4 h-4 text-primary border-slate-300 focus:ring-primary" name="primary_contact" type="radio"/>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 text-slate-400 hover:text-red-600 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 (Error State Example) -->
+<tr class="bg-red-50/30 group">
+<td class="px-6 py-4">
+<select class="bg-transparent border-0 focus:ring-0 text-sm font-medium w-full text-red-700">
+<option>Email</option>
+<option>Số điện thoại</option>
+</select>
+</td>
+<td class="px-6 py-4">
+<input class="bg-transparent border-0 focus:ring-0 text-sm w-full text-red-600 font-medium" type="text" value="invalid-email"/>
+<p class="text-[10px] text-red-500 font-semibold mt-1">Định dạng email không hợp lệ</p>
+</td>
+<td class="px-6 py-4 text-center">
+<input class="w-4 h-4 text-primary border-slate-300 focus:ring-primary" name="primary_contact" type="radio"/>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 text-slate-400 hover:text-red-600 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Section: Tags & Notes -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Tags -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<div class="flex items-center gap-2 mb-6">
+<span class="w-1 h-6 bg-primary rounded-full"></span>
+<h3 class="text-lg font-bold text-on-surface tracking-tight">Thẻ phân loại</h3>
+</div>
+<div class="space-y-4">
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold gap-1">
+                                    Vip <span class="material-symbols-outlined text-xs cursor-pointer">close</span>
+</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold gap-1">
+                                    BĐS <span class="material-symbols-outlined text-xs cursor-pointer">close</span>
+</span>
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-xs font-bold gap-1">
+                                    Hà Nội <span class="material-symbols-outlined text-xs cursor-pointer">close</span>
+</span>
+</div>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-0 focus:ring-2 focus:ring-primary rounded-lg px-4 py-2.5 text-sm transition-all" placeholder="Thêm tag mới..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">sell</span>
+</div>
+</div>
+</div>
+<!-- Notes -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<div class="flex items-center gap-2 mb-6">
+<span class="w-1 h-6 bg-primary rounded-full"></span>
+<h3 class="text-lg font-bold text-on-surface tracking-tight">Ghi chú nhanh</h3>
+</div>
+<textarea class="w-full bg-surface-container-low border-0 focus:ring-2 focus:ring-primary rounded-lg px-4 py-3 text-sm transition-all resize-none placeholder:text-slate-400" placeholder="Nhập ghi chú quan trọng về khách hàng này..." rows="4"></textarea>
+</div>
+</div>
+</form>
+</div>
+</main>
+<!-- Sticky Footer Actions -->
+<footer class="fixed bottom-0 right-0 w-[calc(100%-16rem)] h-20 bg-white/90 backdrop-blur-md border-t border-slate-100 px-10 flex items-center justify-between z-40">
+<div class="flex items-center gap-4 text-slate-500">
+<span class="material-symbols-outlined text-emerald-500" data-weight="fill">check_circle</span>
+<span class="text-xs font-semibold">Tất cả thay đổi đã được tự động lưu bản nháp lúc 14:32</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-8 py-3 text-sm font-bold text-slate-600 hover:bg-slate-100 rounded-lg transition-all active:scale-95">Hủy bỏ</button>
+<button class="px-10 py-3 text-sm font-bold text-white bg-gradient-to-br from-primary to-primary-container rounded-lg shadow-lg shadow-blue-200/50 hover:brightness-110 transition-all active:scale-95">
+                Lưu khách hàng
+            </button>
+</div>
+</footer>
+</body></html>

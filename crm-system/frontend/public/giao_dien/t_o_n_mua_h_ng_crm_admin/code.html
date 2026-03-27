@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tạo sự kiện mua hàng mới - CRM Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#00174b",
+                        "surface-dim": "#d9dadc",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#943700",
+                        "on-background": "#191c1e",
+                        "on-primary-fixed": "#00174b",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#434655",
+                        "primary-container": "#2563eb",
+                        "outline": "#737686",
+                        "on-surface": "#191c1e",
+                        "secondary-fixed": "#dbe1ff",
+                        "inverse-on-surface": "#f0f1f3",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "outline-variant": "#c3c6d7",
+                        "tertiary-container": "#bc4800",
+                        "surface-variant": "#e1e2e4",
+                        "tertiary-fixed": "#ffdbcd",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-tertiary-container": "#ffede6",
+                        "on-primary-container": "#eeefff",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e7e8ea",
+                        "surface": "#f8f9fb",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "surface-container": "#edeef0",
+                        "primary": "#004ac6",
+                        "inverse-surface": "#2e3132",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-bright": "#f8f9fb",
+                        "secondary": "#495c95",
+                        "on-tertiary-fixed": "#360f00",
+                        "on-secondary-container": "#394c84",
+                        "secondary-container": "#acbfff",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#0053db",
+                        "background": "#f8f9fb",
+                        "on-secondary-fixed-variant": "#31447b"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fb;
+        }
+        /* Hide scrollbar but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased text-on-surface">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="h-screen sticky left-0 top-0 w-64 bg-slate-50 border-r-0 flex flex-col overflow-y-auto z-50">
+<div class="px-6 py-8">
+<div class="text-xl font-bold tracking-tight text-[#004ac6] mb-1">CRM Admin</div>
+<div class="text-xs text-slate-500 font-medium">The Precision Architect</div>
+</div>
+<nav class="flex-1 space-y-1 px-3">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-900 transition-colors hover:bg-[#e7e8ea]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Bảng điều khiển</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-900 transition-colors hover:bg-[#e7e8ea]" href="#">
+<span class="material-symbols-outlined" data-icon="event_upcoming">event_upcoming</span>
+<span class="text-sm font-medium">Tương tác &amp; Nhắc việc</span>
+</a>
+<a class="relative flex items-center gap-3 px-4 py-3 text-[#004ac6] font-semibold before:absolute before:left-0 before:w-1 before:h-8 before:bg-[#004ac6] before:rounded-r-full hover:bg-[#e7e8ea]" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-sm">Đơn mua hàng</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-900 transition-colors hover:bg-[#e7e8ea]" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm font-medium">Cấu hình</span>
+</a>
+</nav>
+<div class="mt-auto p-4 border-t border-slate-100">
+<div class="flex items-center gap-3 px-2">
+<img alt="Admin Avatar" class="w-8 h-8 rounded-full bg-slate-200" data-alt="User profile avatar icon circular" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFis9MggYhF_VI9umOz4p2rnzImMOMjtX2vswzLhNHYUtudcpZDzTAFdtrNT4SxPTIWY3i_RhqhygXzydpsOflTegTQdfrTsr14mQ3Ik2rrASbVKehEQG4bshCGjz08sUNnuThRUrIzyebvBNBz78hsVc5SSzNTkC4aI3JSpYIzUFwx4oix6KtaazC8BSwZfHItUwqi_iYiGapQ6aBAtQSyl0l_W5A4We3TUPJlOqt08hRe2DaV69gvUmeSW_X_KvxoG0B1jNGCMF0"/>
+<div class="overflow-hidden">
+<p class="text-xs font-bold truncate">Nguyễn Kiến Trúc</p>
+<p class="text-[10px] text-slate-500 truncate">Quản trị hệ thống</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col min-w-0 bg-surface">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-40 bg-white/85 backdrop-blur-xl shadow-[0_16px_48px_rgba(0,74,198,0.08)]">
+<div class="flex justify-between items-center h-16 px-8 w-full">
+<div class="flex items-center gap-6">
+<div class="relative w-64">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+<span class="material-symbols-outlined text-xl" data-icon="search">search</span>
+</span>
+<input class="block w-full pl-10 pr-3 py-2 border-none bg-surface-container-low rounded-lg text-sm focus:ring-2 focus:ring-primary/20" placeholder="Tìm kiếm nhanh..." type="text"/>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 font-medium hover:text-[#004ac6] transition-colors text-sm tracking-wide" href="#">Tổng quan</a>
+<a class="text-slate-600 font-medium hover:text-[#004ac6] transition-colors text-sm tracking-wide" href="#">Báo cáo</a>
+<a class="text-slate-600 font-medium hover:text-[#004ac6] transition-colors text-sm tracking-wide" href="#">Lịch trình</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:text-[#004ac6] transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-[#004ac6] transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-[#004ac6] transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 p-8 overflow-y-auto no-scrollbar">
+<div class="max-w-4xl mx-auto">
+<!-- Header Section -->
+<div class="mb-10">
+<nav class="flex items-center gap-2 text-xs text-slate-500 mb-2 uppercase tracking-widest font-semibold">
+<span>Quản lý đơn hàng</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary">Tạo mới</span>
+</nav>
+<h1 class="text-3xl font-extrabold tracking-tight text-on-surface">Tạo sự kiện mua hàng mới</h1>
+<p class="text-slate-500 mt-1 text-sm italic">"Chi tiết hoá mọi hành vi khách hàng là bước đầu của sự thấu hiểu."</p>
+</div>
+<!-- Form Container -->
+<div class="bg-surface-container-lowest rounded-xl p-10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-transparent">
+<form class="space-y-8 max-w-[600px] mx-auto">
+<!-- Field: Customer -->
+<div class="space-y-2">
+<label class="block text-sm font-bold text-slate-700">Khách hàng <span class="text-error">*</span></label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="person_search">person_search</span>
+</span>
+<select class="block w-full pl-10 pr-10 py-3 border-none bg-surface-container-low rounded-lg text-sm appearance-none focus:ring-2 focus:ring-primary/20 cursor-pointer">
+<option value="">Tìm kiếm hoặc chọn khách hàng...</option>
+<option value="1">Trần Anh Khoa - 0901234xxx</option>
+<option value="2">Lê Minh Tuấn - 0988776xxx</option>
+<option value="3">Phạm Thảo Vy - 0933445xxx</option>
+</select>
+<span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400">
+<span class="material-symbols-outlined" data-icon="expand_more">expand_more</span>
+</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Field: Purchase Date -->
+<div class="space-y-2">
+<label class="block text-sm font-bold text-slate-700">Ngày mua hàng</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="calendar_today">calendar_today</span>
+</span>
+<input class="block w-full pl-10 pr-3 py-3 border-none bg-surface-container-low rounded-lg text-sm focus:ring-2 focus:ring-primary/20" type="date"/>
+</div>
+</div>
+<!-- Field: Source -->
+<div class="space-y-2">
+<label class="block text-sm font-bold text-slate-700">Nguồn mua</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="hub">hub</span>
+</span>
+<select class="block w-full pl-10 pr-10 py-3 border-none bg-surface-container-low rounded-lg text-sm appearance-none focus:ring-2 focus:ring-primary/20 cursor-pointer">
+<option value="website">Website</option>
+<option value="showroom">Showroom</option>
+<option value="hotline">Hotline</option>
+</select>
+<span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400">
+<span class="material-symbols-outlined" data-icon="expand_more">expand_more</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Field: Notes -->
+<div class="space-y-2">
+<label class="block text-sm font-bold text-slate-700">Ghi chú đơn hàng</label>
+<textarea class="block w-full p-4 border-none bg-surface-container-low rounded-lg text-sm focus:ring-2 focus:ring-primary/20 resize-none" placeholder="Nhập ghi chú hoặc các yêu cầu đặc biệt của khách hàng..." rows="4"></textarea>
+</div>
+<!-- Action Buttons -->
+<div class="pt-6 flex flex-col sm:flex-row items-center gap-4">
+<button class="w-full sm:w-auto px-8 py-3 bg-gradient-to-br from-primary to-primary-container text-white font-bold rounded-lg shadow-lg shadow-primary/20 hover:opacity-90 transition-all flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined" data-icon="save">save</span>
+                                    Lưu thông tin
+                                </button>
+<!-- Success CTA State (Mockup visibility) -->
+<button class="w-full sm:w-auto px-6 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg border border-secondary/10 hover:bg-secondary/20 transition-all flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart" style="font-variation-settings: 'FILL' 1;">add_shopping_cart</span>
+                                    Thêm sản phẩm vào lần mua này
+                                </button>
+</div>
+</form>
+</div>
+<!-- Side Illustration/Hint Bento -->
+<div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="col-span-1 bg-white p-6 rounded-xl border border-transparent shadow-sm">
+<div class="w-10 h-10 rounded-full bg-blue-50 text-primary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+</div>
+<h3 class="text-sm font-bold mb-1">Dữ liệu bảo mật</h3>
+<p class="text-xs text-slate-500 leading-relaxed">Thông tin khách hàng được mã hóa và lưu trữ theo tiêu chuẩn ISO 27001.</p>
+</div>
+<div class="col-span-1 bg-white p-6 rounded-xl border border-transparent shadow-sm">
+<div class="w-10 h-10 rounded-full bg-orange-50 text-tertiary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<h3 class="text-sm font-bold mb-1">Tự động đề xuất</h3>
+<p class="text-xs text-slate-500 leading-relaxed">Hệ thống sẽ gợi ý sản phẩm phù hợp dựa trên lịch sử xem của khách hàng.</p>
+</div>
+<div class="col-span-1 bg-white p-6 rounded-xl border border-transparent shadow-sm">
+<div class="w-10 h-10 rounded-full bg-green-50 text-green-600 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined" data-icon="speed">speed</span>
+</div>
+<h3 class="text-sm font-bold mb-1">Xử lý tức thì</h3>
+<p class="text-xs text-slate-500 leading-relaxed">Email xác nhận sẽ được gửi ngay sau khi sản phẩm được thêm vào.</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

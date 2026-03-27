@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container": "#edeef0",
+              "on-secondary-container": "#394c84",
+              "tertiary-fixed-dim": "#ffb596",
+              "surface-container-highest": "#e1e2e4",
+              "on-error": "#ffffff",
+              "surface-container-low": "#f2f4f6",
+              "surface": "#f8f9fb",
+              "on-tertiary-container": "#ffede6",
+              "inverse-surface": "#2e3132",
+              "error-container": "#ffdad6",
+              "on-primary": "#ffffff",
+              "surface-container-high": "#e7e8ea",
+              "on-primary-container": "#eeefff",
+              "on-error-container": "#93000a",
+              "on-tertiary": "#ffffff",
+              "error": "#ba1a1a",
+              "on-background": "#191c1e",
+              "background": "#f8f9fb",
+              "tertiary-container": "#bc4800",
+              "secondary-container": "#acbfff",
+              "on-tertiary-fixed-variant": "#7d2d00",
+              "on-primary-fixed": "#00174b",
+              "tertiary": "#943700",
+              "outline": "#737686",
+              "surface-tint": "#0053db",
+              "secondary-fixed-dim": "#b4c5ff",
+              "inverse-primary": "#b4c5ff",
+              "secondary": "#495c95",
+              "primary": "#004ac6",
+              "on-tertiary-fixed": "#360f00",
+              "surface-bright": "#f8f9fb",
+              "outline-variant": "#c3c6d7",
+              "on-secondary-fixed-variant": "#31447b",
+              "inverse-on-surface": "#f0f1f3",
+              "on-primary-fixed-variant": "#003ea8",
+              "secondary-fixed": "#dbe1ff",
+              "on-surface-variant": "#434655",
+              "on-surface": "#191c1e",
+              "surface-variant": "#e1e2e4",
+              "on-secondary": "#ffffff",
+              "surface-dim": "#d9dadc",
+              "primary-fixed-dim": "#b4c5ff",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#dbe1ff",
+              "primary-container": "#2563eb",
+              "on-secondary-fixed": "#00174b",
+              "tertiary-fixed": "#ffdbcd"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+        .glass-panel { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased">
+<!-- SideNavBar (Shared Component) -->
+<aside class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-slate-50 flex flex-col py-6 z-50">
+<div class="px-6 mb-8">
+<h1 class="text-xl font-bold text-blue-700">CRM Admin</h1>
+<p class="text-[10px] text-slate-500 font-medium tracking-widest uppercase mt-1">The Precision Architect</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-6 py-3 text-slate-600 hover:bg-slate-200 transition-colors duration-200 text-sm font-medium" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-600 hover:bg-slate-200 transition-colors duration-200 text-sm font-medium" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="group">group</span> Khách hàng
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-600 hover:bg-slate-200 transition-colors duration-200 text-sm font-medium" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="event_repeat">event_repeat</span> Tương tác &amp; Nhắc việc
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-600 hover:bg-slate-200 transition-colors duration-200 text-sm font-medium" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="shopping_cart">shopping_cart</span> Mua hàng
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-600 hover:bg-slate-200 transition-colors duration-200 text-sm font-medium" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="inventory_2">inventory_2</span> Sản phẩm đã mua
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-600 hover:bg-slate-200 transition-colors duration-200 text-sm font-medium" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="verified_user">verified_user</span> Bảo hành
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-600 hover:bg-slate-200 transition-colors duration-200 text-sm font-medium" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="chat">chat</span> Zalo ZNS
+            </a>
+<!-- Active State -->
+<a class="flex items-center px-6 py-3 text-blue-700 border-l-4 border-blue-600 bg-white font-semibold text-sm" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="smart_toy">smart_toy</span> Automation
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-600 hover:bg-slate-200 transition-colors duration-200 text-sm font-medium" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span> Quản trị hệ thống
+            </a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-white/85 backdrop-blur-xl flex items-center justify-between px-8 shadow-sm">
+<div class="flex items-center gap-4">
+<h2 class="text-lg font-semibold text-on-surface">Automation Center</h2>
+<div class="h-4 w-px bg-outline-variant mx-2"></div>
+<div class="flex items-center bg-surface-container-low px-3 py-1.5 rounded-lg w-64">
+<span class="material-symbols-outlined text-outline text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs w-full ml-2" placeholder="Tìm kiếm quy trình..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-slate-500 hover:text-blue-700 transition-opacity"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
+<button class="text-slate-500 hover:text-blue-700 transition-opacity"><span class="material-symbols-outlined" data-icon="help_outline">help_outline</span></button>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant">
+<div class="text-right">
+<p class="text-xs font-semibold">Admin Profile</p>
+<p class="text-[10px] text-outline">Quản trị viên</p>
+</div>
+<img alt="Admin Profile" class="w-8 h-8 rounded-full bg-surface-container" data-alt="User avatar profile picture circular" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7pedub9DGtUCs45bXgg9Vix1yFmlWWb0KpkiE_DP6hSyEIPErhCRlQbs4R_j78yf43tkb-zjq21qq3r-QRsWDxQ_YrqsdWeImWaplLS9Zx9aHo7HMDK_IQz7ZetRSSsyIgVJVoXD85QPDeuIWHtif39F9EfhCxUTYdisE7nu0YJr0WguDwhLK0pWElFQ4r1rUypTwMStEGafsc_5tqd1ffZEBOwxWVIUYcUxnoqzyF8AnHqvrSFGL5PvusDbfF4o32jOae9U3y7sE"/>
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="pt-24 px-8 pb-12">
+<!-- Breadcrumbs & Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<nav class="flex text-[11px] text-outline mb-2 uppercase tracking-wider font-semibold">
+<span>Hệ thống</span>
+<span class="mx-2">/</span>
+<span class="text-primary">Automation</span>
+</nav>
+<h3 class="text-2xl font-bold tracking-tight text-on-surface">Tự động hóa quy trình</h3>
+<p class="text-sm text-outline mt-1">Quản lý và thiết lập các kịch bản tương tác tự động.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg font-medium text-sm shadow-md hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span> Tạo Rule mới
+                    </button>
+</div>
+</div>
+<!-- Tabs Section -->
+<div class="mb-6 flex gap-8 border-b border-outline-variant/30">
+<button class="pb-4 text-sm font-semibold text-primary border-b-2 border-primary relative">
+                    Danh sách Rules
+                    <span class="absolute -top-1 -right-3 bg-primary/10 text-primary text-[10px] px-1.5 py-0.5 rounded-full">12</span>
+</button>
+<button class="pb-4 text-sm font-medium text-outline hover:text-on-surface transition-colors">Rule builder</button>
+<button class="pb-4 text-sm font-medium text-outline hover:text-on-surface transition-colors">Lịch sử chạy</button>
+</div>
+<!-- Tab Content: Danh sách Rules -->
+<div class="space-y-6">
+<!-- Filters/Actions Row -->
+<div class="flex justify-between items-center bg-surface-container-lowest p-4 rounded-xl shadow-sm">
+<div class="flex gap-4">
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold text-outline ml-1">Trạng thái</label>
+<select class="text-xs border-outline-variant/50 rounded-lg focus:ring-primary focus:border-primary">
+<option>Tất cả trạng thái</option>
+<option>Đang hoạt động</option>
+<option>Đã tạm dừng</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold text-outline ml-1">Trigger</label>
+<select class="text-xs border-outline-variant/50 rounded-lg focus:ring-primary focus:border-primary">
+<option>Tất cả Trigger</option>
+<option>Cron Job</option>
+<option>Event-based</option>
+</select>
+</div>
+</div>
+<button class="flex items-center gap-2 text-outline hover:text-primary transition-colors text-sm font-medium">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span> Làm mới
+                    </button>
+</div>
+<!-- Main Rules Table Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low border-b border-outline-variant/20">
+<tr>
+<th class="px-6 py-4 text-xs font-bold text-outline uppercase tracking-wider">Tên quy trình</th>
+<th class="px-6 py-4 text-xs font-bold text-outline uppercase tracking-wider">Trigger</th>
+<th class="px-6 py-4 text-xs font-bold text-outline uppercase tracking-wider">Cron Schedule</th>
+<th class="px-6 py-4 text-xs font-bold text-outline uppercase tracking-wider text-center">Hoạt động</th>
+<th class="px-6 py-4 text-xs font-bold text-outline uppercase tracking-wider">Lần chạy cuối</th>
+<th class="px-6 py-4 text-xs font-bold text-outline uppercase tracking-wider text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-on-surface">Chúc mừng sinh nhật KH</span>
+<span class="text-[11px] text-outline">Gửi SMS tự động cho khách hàng có ngày sinh là hôm nay</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-blue-50 text-blue-700 text-[10px] font-bold rounded uppercase tracking-tighter">Cron Job</span>
+</td>
+<td class="px-6 py-4 font-mono text-xs text-on-surface-variant">0 8 * * *</td>
+<td class="px-6 py-4 text-center">
+<div class="relative inline-block w-8 h-4 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-4 h-4 rounded-full bg-white border-4 appearance-none cursor-pointer border-primary right-0" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-4 rounded-full bg-primary cursor-pointer"></label>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-xs text-on-surface">Hôm nay, 08:00 AM</span>
+<span class="text-[10px] text-green-600 font-medium">Thành công (142 items)</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 text-primary hover:bg-primary/10 rounded transition-colors" title="Run now"><span class="material-symbols-outlined" data-icon="play_arrow">play_arrow</span></button>
+<button class="p-1.5 text-outline hover:bg-surface-container-high rounded transition-colors" title="Edit"><span class="material-symbols-outlined" data-icon="edit">edit</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group bg-surface-container-low/30">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-on-surface">Nhắc lịch bảo hành</span>
+<span class="text-[11px] text-outline">Gửi thông báo ZNS trước 3 ngày đến hạn bảo hành</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-amber-50 text-amber-700 text-[10px] font-bold rounded uppercase tracking-tighter">Event-based</span>
+</td>
+<td class="px-6 py-4 font-mono text-xs text-on-surface-variant">-</td>
+<td class="px-6 py-4 text-center">
+<div class="relative inline-block w-8 h-4 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-4 h-4 rounded-full bg-white border-4 appearance-none cursor-pointer border-primary right-0" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-4 rounded-full bg-primary cursor-pointer"></label>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-xs text-on-surface">15/10/2023, 09:12 AM</span>
+<span class="text-[10px] text-green-600 font-medium">Thành công (8 items)</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 text-primary hover:bg-primary/10 rounded transition-colors" title="Run now"><span class="material-symbols-outlined" data-icon="play_arrow">play_arrow</span></button>
+<button class="p-1.5 text-outline hover:bg-surface-container-high rounded transition-colors" title="Edit"><span class="material-symbols-outlined" data-icon="edit">edit</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 (Paused) -->
+<tr class="hover:bg-surface-container-low transition-colors group opacity-70">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-on-surface">Re-engagement Campaign</span>
+<span class="text-[11px] text-outline">Tự động tag khách hàng không mua hàng trong 90 ngày</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold rounded uppercase tracking-tighter">Cron Job</span>
+</td>
+<td class="px-6 py-4 font-mono text-xs text-on-surface-variant">0 0 * * 0</td>
+<td class="px-6 py-4 text-center">
+<div class="relative inline-block w-8 h-4 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-4 h-4 rounded-full bg-white border-4 appearance-none cursor-pointer border-outline-variant left-0" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-4 rounded-full bg-surface-container-high cursor-pointer"></label>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-xs text-on-surface">08/10/2023, 00:00 AM</span>
+<span class="text-[10px] text-outline">Đã tạm dừng</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 text-primary hover:bg-primary/10 rounded transition-colors" title="Run now"><span class="material-symbols-outlined" data-icon="play_arrow">play_arrow</span></button>
+<button class="p-1.5 text-outline hover:bg-surface-container-high rounded transition-colors" title="Edit"><span class="material-symbols-outlined" data-icon="edit">edit</span></button>
+</div>
+</td>
+</tr>
+<!-- Loading State Simulation (Invisible by default, but built for completeness) -->
+<tr class="hidden">
+<td class="px-6 py-12 text-center" colspan="6">
+<div class="flex flex-col items-center justify-center gap-4 text-outline">
+<div class="w-10 h-10 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+<p class="text-sm font-medium">Đang tải dữ liệu quy trình...</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Placeholder -->
+<div class="flex justify-between items-center text-sm text-outline px-2">
+<p>Hiển thị 1 - 3 của 12 kết quả</p>
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span></button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-white font-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container-low transition-colors">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container-low transition-colors">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span></button>
+</div>
+</div>
+</div>
+<!-- Bento Preview Section: Statistics -->
+<div class="mt-12 grid grid-cols-12 gap-6">
+<div class="col-span-12 md:col-span-4 bg-gradient-to-br from-primary to-primary-container p-6 rounded-2xl text-white shadow-xl shadow-primary/20">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-white/20 rounded-lg backdrop-blur-md">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</div>
+<span class="text-[10px] font-bold bg-white/20 px-2 py-1 rounded uppercase">Tuần này</span>
+</div>
+<p class="text-white/80 text-sm font-medium">Tổng số lần chạy</p>
+<h4 class="text-4xl font-extrabold mt-1">24,812</h4>
+<p class="text-[10px] text-white/60 mt-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="trending_up">trending_up</span>
+                        +12.4% so với tuần trước
+                    </p>
+</div>
+<div class="col-span-12 md:col-span-8 bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/10">
+<h5 class="text-sm font-bold text-on-surface mb-4">Hoạt động gần đây nhất</h5>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-3 hover:bg-surface-container-low rounded-xl transition-colors">
+<div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-semibold">Gửi email onboarding</p>
+<p class="text-[11px] text-outline">Hoàn thành: 12 khách hàng mới được gửi email thành công.</p>
+</div>
+<span class="text-[10px] font-bold text-outline">12 phút trước</span>
+</div>
+<div class="flex items-center gap-4 p-3 hover:bg-surface-container-low rounded-xl transition-colors border-t border-outline-variant/10">
+<div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-600">
+<span class="material-symbols-outlined" data-icon="error">error</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-semibold">Tự động hóa Zalo OA</p>
+<p class="text-[11px] text-red-600 font-medium">Lỗi API: Token truy cập không hợp lệ.</p>
+</div>
+<span class="text-[10px] font-bold text-outline">45 phút trước</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State Illustration (Hidden by default) -->
+<div class="hidden flex flex-col items-center justify-center py-24 bg-surface-container-lowest rounded-2xl border-2 border-dashed border-outline-variant/50">
+<div class="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl text-outline" data-icon="format_list_bulleted">format_list_bulleted</span>
+</div>
+<h4 class="text-lg font-bold">Chưa có quy trình nào</h4>
+<p class="text-sm text-outline mt-1 mb-6">Hãy bắt đầu bằng cách tạo quy trình tự động hóa đầu tiên của bạn.</p>
+<button class="bg-primary text-white px-6 py-2 rounded-lg font-bold text-sm">Tạo ngay</button>
+</div>
+</div>
+</main>
+<!-- Drawer: Detail (Mocked as hidden Overlay) -->
+<div class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity">
+<div class="absolute inset-0 bg-black/40 backdrop-blur-sm pointer-events-auto"></div>
+<div class="absolute right-0 top-0 h-full w-[450px] bg-white shadow-2xl pointer-events-auto transform translate-x-full transition-transform">
+<div class="p-6 h-full flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h4 class="text-xl font-bold">Chi tiết lịch sử chạy</h4>
+<button class="p-2 hover:bg-surface-container-low rounded-full"><span class="material-symbols-outlined" data-icon="close">close</span></button>
+</div>
+<div class="flex-1 overflow-y-auto">
+<!-- Detail content would go here -->
+</div>
+</div>
+</div>
+</div>
+</body></html>

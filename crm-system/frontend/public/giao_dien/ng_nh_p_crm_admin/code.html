@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Đăng nhập | Nexus CRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed-dim": "#b4c5ff",
+              "on-tertiary": "#ffffff",
+              "inverse-surface": "#2e3132",
+              "secondary": "#495c95",
+              "outline-variant": "#c3c6d7",
+              "on-error": "#ffffff",
+              "on-tertiary-fixed-variant": "#7d2d00",
+              "on-secondary-container": "#394c84",
+              "primary-container": "#2563eb",
+              "surface-tint": "#0053db",
+              "on-tertiary-fixed": "#360f00",
+              "secondary-fixed": "#dbe1ff",
+              "error": "#ba1a1a",
+              "surface-container-low": "#f2f4f6",
+              "surface-dim": "#d9dadc",
+              "tertiary-container": "#bc4800",
+              "on-surface-variant": "#434655",
+              "on-primary-container": "#eeefff",
+              "tertiary": "#943700",
+              "on-secondary-fixed-variant": "#31447b",
+              "surface-bright": "#f8f9fb",
+              "on-secondary": "#ffffff",
+              "primary-fixed": "#dbe1ff",
+              "on-secondary-fixed": "#00174b",
+              "inverse-on-surface": "#f0f1f3",
+              "secondary-container": "#acbfff",
+              "on-background": "#191c1e",
+              "on-primary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-high": "#e7e8ea",
+              "background": "#f8f9fb",
+              "secondary-fixed-dim": "#b4c5ff",
+              "outline": "#737686",
+              "on-error-container": "#93000a",
+              "tertiary-fixed-dim": "#ffb596",
+              "on-primary-fixed-variant": "#003ea8",
+              "error-container": "#ffdad6",
+              "surface-container-highest": "#e1e2e4",
+              "on-tertiary-container": "#ffede6",
+              "surface": "#f8f9fb",
+              "on-primary-fixed": "#00174b",
+              "primary": "#004ac6",
+              "inverse-primary": "#b4c5ff",
+              "surface-container": "#edeef0",
+              "surface-variant": "#e1e2e4",
+              "on-surface": "#191c1e",
+              "tertiary-fixed": "#ffdbcd"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased">
+<!-- Main Content Canvas -->
+<main class="min-h-screen flex items-center justify-center p-6 relative overflow-hidden">
+<!-- Abstract Background Decoration -->
+<div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0">
+<div class="absolute -top-[10%] -right-[5%] w-[40%] h-[60%] rounded-full bg-primary/5 blur-[120px]"></div>
+<div class="absolute -bottom-[10%] -left-[5%] w-[30%] h-[50%] rounded-full bg-secondary/5 blur-[100px]"></div>
+</div>
+<!-- Login Container -->
+<div class="w-full max-w-[440px] z-10">
+<!-- Brand Anchor (Identity from JSON) -->
+<div class="flex flex-col items-center mb-10">
+<div class="w-12 h-12 bg-primary-container rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="architecture" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+<h1 class="text-2xl font-black tracking-tighter text-primary">Nexus CRM</h1>
+<p class="text-sm font-medium text-slate-500 mt-1 uppercase tracking-widest">Kiến trúc sư của sự chính xác</p>
+</div>
+<!-- Login Card (Ant Design Inspired - Clean & White) -->
+<div class="bg-surface-container-lowest rounded-xl p-8 md:p-10 shadow-[0_16px_48px_rgba(0,74,198,0.08)] border border-outline-variant/20">
+<div class="mb-8">
+<h2 class="text-xl font-bold text-on-surface tracking-tight">Chào mừng trở lại</h2>
+<p class="text-sm text-outline mt-1">Vui lòng nhập thông tin để truy cập hệ thống.</p>
+</div>
+<!-- Error State Placeholder -->
+<div class="mb-6 p-3 bg-error-container/30 border border-error/10 rounded-lg flex items-start gap-3">
+<span class="material-symbols-outlined text-error text-[20px]" data-icon="error">error</span>
+<p class="text-xs font-medium text-error leading-relaxed">Tài khoản hoặc mật khẩu không chính xác. Vui lòng kiểm tra lại.</p>
+</div>
+<form class="space-y-6" onsubmit="return false;">
+<!-- Username/Email Field -->
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-on-surface-variant">Email hoặc Tên đăng nhập</label>
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline group-focus-within:text-primary transition-colors text-[20px]" data-icon="person">person</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface-container-low border-0 ring-1 ring-outline-variant/30 rounded-lg focus:ring-2 focus:ring-primary transition-all outline-none text-sm placeholder:text-outline/60" placeholder="vidu@nexus.com" type="text"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="block text-sm font-semibold text-on-surface-variant">Mật khẩu</label>
+<a class="text-xs font-semibold text-primary hover:underline transition-all" href="#">Quên mật khẩu?</a>
+</div>
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline group-focus-within:text-primary transition-colors text-[20px]" data-icon="lock">lock</span>
+<input class="w-full pl-10 pr-12 py-2.5 bg-surface-container-low border-0 ring-1 ring-outline-variant/30 rounded-lg focus:ring-2 focus:ring-primary transition-all outline-none text-sm placeholder:text-outline/60" placeholder="••••••••" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface-variant transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me -->
+<div class="flex items-center gap-2">
+<input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary/20" id="remember" type="checkbox"/>
+<label class="text-sm text-on-surface-variant cursor-pointer select-none" for="remember">Ghi nhớ đăng nhập</label>
+</div>
+<!-- Submit Button (Primary State) -->
+<button class="w-full py-3 bg-gradient-to-br from-primary to-primary-container text-white font-bold rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-[0.98] transition-all duration-200" type="submit">Đăng nhập</button>
+<!-- Loading State Illustration (Ghost Style) -->
+<button class="hidden w-full py-3 bg-surface-container-high text-outline font-bold rounded-lg flex items-center justify-center gap-3 cursor-not-allowed" disabled="" type="button"><svg class="animate-spin h-5 w-5 text-primary" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor"></path></svg>Đang xử lý...</button>
+</form>
+<!-- Footer Links -->
+<div class="mt-8 pt-8 border-t border-outline-variant/10 text-center">
+<p class="text-sm text-outline">Bạn chưa có tài khoản? <a class="font-bold text-primary hover:underline" href="#">Liên hệ quản trị viên</a></p>
+</div>
+</div>
+<!-- Accessibility/Legal Footer -->
+<div class="mt-8 flex justify-center items-center gap-6 text-xs text-outline font-medium">
+<a class="hover:text-primary transition-colors" href="#">Chính sách bảo mật</a>
+<span class="w-1 h-1 bg-outline-variant/40 rounded-full"></span>
+<a class="hover:text-primary transition-colors" href="#">Hỗ trợ kỹ thuật</a>
+<span class="w-1 h-1 bg-outline-variant/40 rounded-full"></span>
+<span class="text-outline/60">v2.4.0</span>
+</div>
+</div>
+</main>
+<!-- Background Layer Decoration (Editorial feel) -->
+<div class="fixed bottom-12 right-12 opacity-[0.03] pointer-events-none select-none">
+<h3 class="text-[12rem] font-black tracking-tighter leading-none text-primary">NEXUS</h3>
+</div>
+</body></html>
