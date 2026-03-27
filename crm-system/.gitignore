@@ -1,0 +1,15 @@
+# Dependency folders
+node_modules/
+
+# Build outputs
+dist/
+.next/
+out/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Environment variables (Rất quan trọng để bảo mật)
+.env
+.env.local
